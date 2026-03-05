@@ -4,6 +4,8 @@ class Load extends Phaser.Scene {
     }
 
     preload() {
+        this.load.json('roomDataJSON', '/src/roomData.json');
+
         // set load path
         this.load.path = 'assets/';
     }

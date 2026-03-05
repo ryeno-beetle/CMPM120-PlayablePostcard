@@ -1,0 +1,21 @@
+{
+    "name": "tv",
+    "objects": [
+        {
+            "textureName": "test.png",
+            "soundName": "aaaaa.wav",
+            "x": 50,
+            "y": 50,
+            "message": "this is a msg :3"
+        }
+    ],
+    "transitions": [
+        {
+            "nextState": "diningRoomState",
+            "x": 300,
+            "y": 300,
+            "w": 30,
+            "h": 30
+        }
+    ]
+}
