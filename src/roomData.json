@@ -1,21 +1,28 @@
-{
-    "name": "tv",
-    "objects": [
-        {
-            "textureName": "test.png",
-            "soundName": "aaaaa.wav",
-            "x": 50,
-            "y": 50,
-            "message": "this is a msg :3"
-        }
-    ],
-    "transitions": [
-        {
-            "nextState": "diningRoomState",
-            "x": 300,
-            "y": 300,
-            "w": 30,
-            "h": 30
-        }
-    ]
-}
+[
+    {
+        "name": "tv",
+        "assetPath": "/assets/tv_view",
+        "bgTextureFile": "tv_bg.png",
+        "bgTextureKey": "tv_bg",
+        "items": [
+            {
+                "textureFile": "tv.png", 
+                "textureKey": "tv",
+                "soundName": "aaaaa.wav",
+                "soundKey": "aaaaa",
+                "x": 200,
+                "y": 200,
+                "message": "this is a msg :3"
+            }
+        ],
+        "transitions": [
+            {
+                "nextState": "diningRoomState",
+                "x": 300,
+                "y": 300,
+                "w": 30,
+                "h": 30
+            }
+        ]
+    }
+]

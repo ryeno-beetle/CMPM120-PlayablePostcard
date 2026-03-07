@@ -8,8 +8,12 @@ class Play extends Phaser.Scene {
     create() {
         // make list of instatiated prefabs for each room
         let roomData = this.cache.json.get('roomDataJSON');
-        console.log(roomData);
-        //TODO: parse the thing
+        this.rooms = [];
+        for (let i = 0; i < roomData.length; i++) {
+            console.log(roomData[i].bgTextureKey);
+            this.rooms.push(new Room(this, 0, 0, roomData[i].bgTextureKey, roomData[i]));
+        }
+        console.log(this.rooms);
 
         // init FSM for rooms
         this.roomFSM = new StateMachine('tvState', {
