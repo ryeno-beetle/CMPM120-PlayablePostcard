@@ -11,7 +11,7 @@ class Play extends Phaser.Scene {
         this.rooms = [];
         for (let i = 0; i < roomData.length; i++) {
             console.log(roomData[i].bgTextureKey);
-            this.rooms.push(new Room(this, 0, 0, roomData[i].bgTextureKey, roomData[i]));
+            this.rooms.push(new Room(this, 0, 0, roomData[i].bgTextureKey, roomData[i]).setOrigin(0));
         }
         console.log(this.rooms);
 
@@ -38,6 +38,7 @@ class Play extends Phaser.Scene {
 class TVState extends State {
     enter(scene) {
         console.log("entered tv state");
+
     }
     execute(scene) {
 
