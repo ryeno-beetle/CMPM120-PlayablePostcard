@@ -1,7 +1,7 @@
 [
     {
         "name": "tv",
-        "assetPath": "/assets/tv_view",
+        "assetPath": "/assets/tv_view/",
         "bgTextureFile": "tv_bg.png",
         "bgTextureKey": "tv_bg",
         "items": [
