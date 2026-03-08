@@ -38,7 +38,8 @@ class Play extends Phaser.Scene {
 class TVState extends State {
     enter(scene) {
         console.log("entered tv state");
-
+        this.room = scene.rooms.find(room => room.roomData.name === "tv");
+        this.room.toggleVisibility();
     }
     execute(scene) {
 

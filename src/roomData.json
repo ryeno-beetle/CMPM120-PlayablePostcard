@@ -10,14 +10,32 @@
                 "textureKey": "tv",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
-                "x": 200,
-                "y": 200,
+                "x": 240,
+                "y": 220,
                 "message": "this is a msg :3"
             }
         ],
         "transitions": [
             {
-                "nextState": "diningRoomState",
+                "nextState": "tableState",
+                "x": 300,
+                "y": 300,
+                "w": 30,
+                "h": 30
+            }
+        ]
+    },
+    {
+        "name": "dining",
+        "assetPath": "/assets/dining_view/",
+        "bgTextureFile": "dining_bg.png",
+        "bgTextureKey": "dining_bg",
+        "items": [
+            
+        ],
+        "transitions": [
+            {
+                "nextState": "tvState",
                 "x": 300,
                 "y": 300,
                 "w": 30,
