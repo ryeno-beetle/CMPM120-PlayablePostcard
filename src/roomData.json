@@ -13,6 +13,15 @@
                 "x": 240,
                 "y": 220,
                 "message": "this is a msg :3"
+            },
+            {
+                "textureFile": "nagito.png", 
+                "textureKey": "nagito",
+                "soundName": "aaaaa.wav",
+                "soundKey": "aaaaa",
+                "x": 180,
+                "y": 30,
+                "message": "him"
             }
         ],
         "transitions": [
@@ -31,7 +40,15 @@
         "bgTextureFile": "dining_bg.png",
         "bgTextureKey": "dining_bg",
         "items": [
-            
+            {
+                "textureFile": "horse.png", 
+                "textureKey": "horse",
+                "soundName": "aaaaa.wav",
+                "soundKey": "aaaaa",
+                "x": 240,
+                "y": 220,
+                "message": "horses horses horses horses"
+            }
         ],
         "transitions": [
             {

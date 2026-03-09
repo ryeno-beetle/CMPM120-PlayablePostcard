@@ -18,8 +18,8 @@ class Load extends Phaser.Scene {
             let objs = roomData[i].items;
             console.log("objs: ", objs);
             for (let j = 0; j < objs.length; j++) {
-                console.log("in " + roomData[i].name + " room , loading item: " + objs[i].textureKey);
-                this.load.image(objs[i].textureKey, objs[j].textureFile);
+                console.log("in " + roomData[i].name + " room , loading item: " + objs[j].textureKey);
+                this.load.image(objs[j].textureKey, objs[j].textureFile);
             }
             // TODO: sound will have a different load path, how do we want to handle that
         }
