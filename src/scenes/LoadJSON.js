@@ -4,7 +4,7 @@ class LoadJSON extends Phaser.Scene {
     }
 
     preload() {
-        this.load.json('roomDataJSON', '/src/roomData.json');
+        this.load.json('roomDataJSON', './src/roomData.json');
         // once json loads, move to load scene
         this.load.once("load", function (fileObj) {
             this.scene.start('loadScene');
