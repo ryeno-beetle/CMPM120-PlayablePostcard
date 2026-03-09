@@ -14,6 +14,7 @@ class Item extends Phaser.GameObjects.Sprite {
         this.setInteractive({useHandCursor: true});
 
         this.on('pointerdown', () => {
+            this.scene.sound.play("ui-sfx");
             this.handleClick();
         });
     }

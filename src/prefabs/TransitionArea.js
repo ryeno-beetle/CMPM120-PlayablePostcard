@@ -25,7 +25,9 @@ class TransitionArea extends Phaser.GameObjects.Sprite {
         // set up callback for when clicked
         this.on("pointerdown", (pointer, localX, localY, event) => {
             console.log("NEXT ROOM:", this.nextRoom, "AHOY");
-            let currentState = this.room + "State";
+            this.scene.sound.play("move-sfx");
+
+            let currentState = this.scene.roomFSM.state;
             // console.log("this state is", this.scene.roomFSM.possibleStates[currentState]);
             // console.log("state type is:", typeof(this.scene.roomFSM.possibleStates.state));
             // hide room we are leaving

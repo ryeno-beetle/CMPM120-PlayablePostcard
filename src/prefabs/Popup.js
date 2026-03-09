@@ -24,6 +24,7 @@ class Popup extends Phaser.GameObjects.Sprite {
         this.button.setInteractive({useHandCursor: true});
 
         this.button.on('pointerdown', () => {
+            // this.scene.sound.play("ui-sfx");
             this.handleClick();
         });
     }
@@ -33,6 +34,7 @@ class Popup extends Phaser.GameObjects.Sprite {
         this.button.destroy();
         this.buttonText.destroy();
         this.messageText.destroy();
+        this.scene.sound.play("pack-sfx");
         this.destroy();
     }
 }
