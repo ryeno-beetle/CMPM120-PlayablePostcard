@@ -11,7 +11,10 @@ let config = {
     type: Phaser.AUTO,
     width: 640,
     height: 480,
-    scene: [LoadJSON, Load, Menu, Play],
+    scene: [LoadJSON, Load, Menu, Play, End],
 }
 
 let game = new Phaser.Game(config);
+
+// item counts
+const TOTAL_ITEMS = 2;

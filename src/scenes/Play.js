@@ -26,6 +26,9 @@ class Play extends Phaser.Scene {
             bathroomState: new BathroomState(),
             houseRoomState: new HouseRoomState(),
         }, [this]);
+
+        // vars
+        this.itemsPacked = 0;
     }
 
     update() {

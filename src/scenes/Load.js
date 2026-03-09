@@ -23,6 +23,11 @@ class Load extends Phaser.Scene {
             }
             // TODO: sound will have a different load path, how do we want to handle that
         }
+
+        // load ui assets
+        this.load.path = '/assets/ui/';
+        this.load.image('popup', 'popup.png');
+        this.load.image('button', 'button.png');
     }
 
     create() {

@@ -14,7 +14,7 @@ class Room extends Phaser.GameObjects.Sprite {
         this.items = [];
         for (let i = 0; i < roomData.items.length; i++) {
             //TODO: does name need to match the state cause we are referring to the dining room as tableState
-            this.items.push(new Item(scene, roomData.name, roomData.items[i].x, roomData.items[i].y,
+            this.items.push(new Item(scene, this, roomData.items[i].x, roomData.items[i].y,
                 roomData.items[i].textureKey, roomData.items[i].soundKey, roomData.items[i].message).setOrigin(0));
             this.items[i].setVisible(false);
         }
