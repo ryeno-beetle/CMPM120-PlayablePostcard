@@ -1,7 +1,7 @@
 [
     {
         "name": "tv",
-        "assetPath": "/assets/tv_view/",
+        "assetPath": "./assets/tv_view/",
         "bgTextureFile": "tv_bg.png",
         "bgTextureKey": "tv_bg",
         "items": [
@@ -45,7 +45,7 @@
     },
     {
         "name": "dining",
-        "assetPath": "/assets/dining_view/",
+        "assetPath": "./assets/dining_view/",
         "bgTextureFile": "dining_bg.png",
         "bgTextureKey": "dining_bg",
         "items": [
@@ -107,7 +107,7 @@
     },
     {
         "name": "stove",
-        "assetPath": "/assets/stove_view/",
+        "assetPath": "./assets/stove_view/",
         "bgTextureFile": "stove_bg.png",
         "bgTextureKey": "stove_bg",
         "items": [
@@ -152,7 +152,7 @@
     },
     {
         "name": "shoe",
-        "assetPath": "/assets/shoe_view/",
+        "assetPath": "./assets/shoe_view/",
         "bgTextureFile": "shoe_bg.png",
         "bgTextureKey": "shoe_bg",
         "items": [

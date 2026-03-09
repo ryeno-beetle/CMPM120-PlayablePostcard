@@ -33,12 +33,12 @@ class Load extends Phaser.Scene {
         }
 
         // load ui assets
-        this.load.path = '/assets/ui/';
+        this.load.path = './assets/ui/';
         this.load.image('popup', 'popup.png');
         this.load.image('button', 'button.png');
 
         // load audio
-        this.load.path = "/assets/sfx/";
+        this.load.path = "./assets/sfx/";
         this.load.audio("ui-sfx", "tap.wav");
         this.load.audio("pack-sfx", "pack.wav");
         this.load.audio("move-sfx", "steps.wav");
