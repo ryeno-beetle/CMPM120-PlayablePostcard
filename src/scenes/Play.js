@@ -20,7 +20,7 @@ class Play extends Phaser.Scene {
             tvState: new TVState(),
             couchState: new CouchState(),
             shoeState: new ShoeState(),
-            tableState: new TableState(),
+            diningState: new DiningState(),
             stoveState: new StoveState(),
             fridgeState: new FridgeState(),
             bathroomState: new BathroomState(),
@@ -67,9 +67,11 @@ class ShoeState extends State {
     }
 }
 
-class TableState extends State {
+class DiningState extends State {
     enter(scene) {
-        console.log("entered table state");
+        console.log("entered dining state");
+        this.room = scene.rooms.find(room => room.roomData.name === "dining");
+        this.room.toggleVisibility();
     }
     execute(scene) {
 

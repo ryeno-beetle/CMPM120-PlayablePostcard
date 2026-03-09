@@ -26,11 +26,12 @@
         ],
         "transitions": [
             {
-                "nextState": "tableState",
-                "x": 300,
-                "y": 300,
-                "w": 30,
-                "h": 30
+                "key": "tv-to-dining",
+                "nextState": "diningState",
+                "x": 140,
+                "y": 140,
+                "w": 250,
+                "h": 205
             }
         ]
     },
@@ -52,11 +53,12 @@
         ],
         "transitions": [
             {
+                "key": "dining-to-tv",
                 "nextState": "tvState",
-                "x": 300,
-                "y": 300,
-                "w": 30,
-                "h": 30
+                "x": 0,
+                "y": 430,
+                "w": 640,
+                "h": 50
             }
         ]
     }
