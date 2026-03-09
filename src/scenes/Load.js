@@ -26,7 +26,7 @@ class Load extends Phaser.Scene {
             // create textures from rects for each transitionarea
             let transes = roomData[i].transitions;
             for (let j = 0; j < transes.length; j++) {
-                let rt = this.add.renderTexture(0, 0, transes[j].w, transes[j].h);
+                let rt = this.add.renderTexture(-w, 0, transes[j].w, transes[j].h);
                 rt.fill(0xFFFAAA);  //TODO: set better color
                 rt.saveTexture(transes[j].key);
             }

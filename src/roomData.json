@@ -32,6 +32,14 @@
                 "y": 140,
                 "w": 250,
                 "h": 205
+            },
+            {
+                "key": "tv-to-shoe",
+                "nextState": "shoeState",
+                "x": 590,
+                "y": 0,
+                "w": 50,
+                "h": 480
             }
         ]
     },
@@ -46,9 +54,36 @@
                 "textureKey": "horse",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
-                "x": 240,
+                "x": 430,
                 "y": 220,
                 "message": "horses horses horses horses"
+            },
+            {
+                "textureFile": "cat_photos.png", 
+                "textureKey": "cat_photos",
+                "soundName": "aaaaa.wav",
+                "soundKey": "aaaaa",
+                "x": 170,
+                "y": 50,
+                "message": "we really never found out who he was?"
+            },
+            {
+                "textureFile": "hot_plate.png", 
+                "textureKey": "hot_plate",
+                "soundName": "aaaaa.wav",
+                "soundKey": "aaaaa",
+                "x": 230,
+                "y": 240,
+                "message": "恭喜发财!!!!"
+            },
+            {
+                "textureFile": "inchworm.png", 
+                "textureKey": "inchworm",
+                "soundName": "aaaaa.wav",
+                "soundKey": "aaaaa",
+                "x": 100,
+                "y": 200,
+                "message": "so fashionable!"
             }
         ],
         "transitions": [
@@ -59,6 +94,86 @@
                 "y": 430,
                 "w": 640,
                 "h": 50
+            },
+            {
+                "key": "dining-to-stove",
+                "nextState": "stoveState",
+                "x": 590,
+                "y": 0,
+                "w": 50,
+                "h": 480
+            }
+        ]
+    },
+    {
+        "name": "stove",
+        "assetPath": "/assets/stove_view/",
+        "bgTextureFile": "stove_bg.png",
+        "bgTextureKey": "stove_bg",
+        "items": [
+            {
+                "textureFile": "blender.png", 
+                "textureKey": "blender",
+                "soundName": "aaaaa.wav",
+                "soundKey": "aaaaa",
+                "x": 450,
+                "y": 100,
+                "message": "BLENDERRRR"
+            },
+            {
+                "textureFile": "fox.png", 
+                "textureKey": "fox",
+                "soundName": "aaaaa.wav",
+                "soundKey": "aaaaa",
+                "x": 250,
+                "y": 240,
+                "message": "tickticktickticktcitkcitcktickticktcitkcitkcitkci"
+            },
+            {
+                "textureFile": "pan.png", 
+                "textureKey": "pan",
+                "soundName": "aaaaa.wav",
+                "soundKey": "aaaaa",
+                "x": 65,
+                "y": 255,
+                "message": "seems a little smoother than when the\nyear started..."
+            }
+        ],
+        "transitions": [
+            {
+                "key": "stove-to-dining",
+                "nextState": "diningState",
+                "x": 0,
+                "y": 0,
+                "w": 50,
+                "h": 480
+            }
+        ]
+    },
+    {
+        "name": "shoe",
+        "assetPath": "/assets/shoe_view/",
+        "bgTextureFile": "shoe_bg.png",
+        "bgTextureKey": "shoe_bg",
+        "items": [
+            {
+                "textureFile": "boots.png", 
+                "textureKey": "boots",
+                "soundName": "aaaaa.wav",
+                "soundKey": "aaaaa",
+                "x": 350,
+                "y": 310,
+                "message": "full of walnuts..."
+            }
+        ],
+        "transitions": [
+            {
+                "key": "shoe-to-tv",
+                "nextState": "tvState",
+                "x": 0,
+                "y": 0,
+                "w": 50,
+                "h": 480
             }
         ]
     }

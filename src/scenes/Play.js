@@ -34,6 +34,14 @@ class Play extends Phaser.Scene {
     update() {
         this.roomFSM.step();
     }
+
+    // helper for fading camera out/in that TransitionAreas can call
+    cameraFadeTransition() {
+        this.cameras.main.fadeOut(250);
+        this.cameras.main.on("camerafadeoutcomplete", () => {
+            this.cameras.main.fadeIn(250);
+        });
+    }
 }
 
 
@@ -61,6 +69,8 @@ class CouchState extends State {
 class ShoeState extends State {
     enter(scene) {
         console.log("entered shoe state");
+        this.room = scene.rooms.find(room => room.roomData.name === "shoe");
+        this.room.toggleVisibility();
     }
     execute(scene) {
 
@@ -81,6 +91,8 @@ class DiningState extends State {
 class StoveState extends State {
     enter(scene) {
         console.log("entered stove state");
+        this.room = scene.rooms.find(room => room.roomData.name === "stove");
+        this.room.toggleVisibility();
     }
     execute(scene) {
 
