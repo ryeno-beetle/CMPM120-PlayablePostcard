@@ -24,6 +24,16 @@
                 "message": "oh, that's where he was"
             }
         ],
+        "box": {
+            "textureFile": "box.png", 
+            "textureKey": "box",
+            "soundName": "aaaaa.wav",
+            "soundKey": "aaaaa",
+            "x": 30,
+            "y": 400,
+            "cantPackMessage": "I'm not holding anything to pack...",
+            "packedMessage": "See you later, "
+        },
         "transitions": [
             {
                 "key": "tv-to-dining",

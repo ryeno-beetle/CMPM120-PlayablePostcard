@@ -23,6 +23,11 @@ class Load extends Phaser.Scene {
             }
             // TODO: sound will have a different load path, how do we want to handle that
 
+            // load box if currently loading tv room
+            if (roomData[i].name === "tv") {
+                this.load.image(roomData[i].box.textureKey, roomData[i].box.textureFile);
+            }
+
             // create textures from rects for each transitionarea
             let transes = roomData[i].transitions;
             for (let j = 0; j < transes.length; j++) {

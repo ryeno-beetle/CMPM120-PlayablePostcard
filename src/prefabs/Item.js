@@ -22,16 +22,24 @@ class Item extends Phaser.GameObjects.Sprite {
     handleClick() {
         // show popup
         console.log(this.message);
-        let popup = new Popup(this.scene, this);
+        // scene, message, buttonText
+        let popup = new Popup(this.scene, this.message, "pack me!");
+
+        // start holding item once popup gets closed
+        popup.on("popupClosed", () => {
+            this.holdItem();
+        });
 
         // make obj not interactable
         this.off('pointerdown');
         this.removeInteractive();
     }
 
-    packItem() {
+    //TODO: change this to be holding code
+    holdItem() {   
         // pack this item!
         console.log('item packed!');
+        this.scene.sound.play("pack-sfx");
         // remove from parent's item list
         this.room.items.splice(this.room.items.indexOf(this), 1);
         // increment packed counter in play scene and trigger game end if it's the last item
@@ -43,5 +51,6 @@ class Item extends Phaser.GameObjects.Sprite {
         this.destroy();
 
         // TODO: some way of tracking when all items are packed
+        // ... just counting against a global var
     }
 }
