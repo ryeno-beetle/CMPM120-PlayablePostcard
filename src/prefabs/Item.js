@@ -4,10 +4,11 @@ class Item extends Phaser.GameObjects.Sprite {
         super(scene, x, y, texture);
         scene.add.existing(this); // add to existing, displayList, updateList
         
-        console.log("just added" + texture);
+        // console.log("just added" + texture);
         this.room = room;
         this.message = message;
         this.pickUpSound = pickUpSound;
+        this.texture = texture;
         
         this.scale = 0.3
 
@@ -21,27 +22,28 @@ class Item extends Phaser.GameObjects.Sprite {
 
     handleClick() {
         // show popup
-        console.log(this.message);
-        let popup = new Popup(this.scene, this);
+        // console.log(this.message);
+        // scene, message, buttonText
+        let popup = new Popup(this.scene, this.message, "pick up!");
+
+        // start holding item once popup gets closed
+        popup.on("popupClosed", () => {
+            this.holdItem();
+        });
 
         // make obj not interactable
         this.off('pointerdown');
         this.removeInteractive();
     }
 
-    packItem() {
-        // pack this item!
-        console.log('item packed!');
+    holdItem() {   
+        // give our image key to the scene's heldItem
+        this.scene.heldItem.setTexture(this.texture);
+        this.scene.heldItem.setVisible(true);
+        this.scene.sound.play("pack-sfx");  //TODO: pickup sfx
         // remove from parent's item list
         this.room.items.splice(this.room.items.indexOf(this), 1);
-        // increment packed counter in play scene and trigger game end if it's the last item
-        this.scene.itemsPacked += 1;
-        if (this.scene.itemsPacked == TOTAL_ITEMS) {
-            this.scene.scene.start('endScene');
-        }
-        // destroy item
+        // destroy this item, but the play scene will have the sprite until packed
         this.destroy();
-
-        // TODO: some way of tracking when all items are packed
     }
 }

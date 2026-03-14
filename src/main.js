@@ -4,6 +4,7 @@
 
 /* CITATIONS:
     - Camera fade: https://rexrainbow.github.io/phaser3-rex-notes/docs/site/camera-effects/
+    - Listening to another prefab's emitted event: https://phaser.io/examples/v3.85.0/events/view/listen-to-game-object-event
 */
 
 'use strict'

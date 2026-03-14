@@ -5,7 +5,7 @@ class Load extends Phaser.Scene {
 
     preload() {
         let roomData = this.cache.json.get('roomDataJSON');
-        console.log(roomData.length);
+        // console.log(roomData.length);
         // load assets from json
         // for each room...
         for (let i = 0; i < roomData.length; i++) {
@@ -14,14 +14,19 @@ class Load extends Phaser.Scene {
             // load background
             this.load.image(roomData[i].bgTextureKey, roomData[i].bgTextureFile);
             // load assets for each item
-            console.log("loading things for room " + roomData[i].name);
+            // console.log("loading things for room " + roomData[i].name);
             let objs = roomData[i].items;
-            console.log("objs: ", objs);
+            // console.log("objs: ", objs);
             for (let j = 0; j < objs.length; j++) {
-                console.log("in " + roomData[i].name + " room , loading item: " + objs[j].textureKey);
+                // console.log("in " + roomData[i].name + " room , loading item: " + objs[j].textureKey);
                 this.load.image(objs[j].textureKey, objs[j].textureFile);
             }
             // TODO: sound will have a different load path, how do we want to handle that
+
+            // load box if currently loading tv room
+            if (roomData[i].name === "tv") {
+                this.load.image(roomData[i].box.textureKey, roomData[i].box.textureFile);
+            }
 
             // create textures from rects for each transitionarea
             let transes = roomData[i].transitions;

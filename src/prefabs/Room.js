@@ -1,13 +1,13 @@
 // prefab for a view of a room
 class Room extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, texture, roomData, hasBox) {
-        console.log(texture);
+    constructor(scene, x, y, texture, roomData) {
+        // console.log(texture);
         super(scene, x, y, texture);
 
         this.setVisible(false);
         scene.add.existing(this); // add to existing, displayList, updateList
         this.setDepth(-2);  // go behind transitionareas and items
-        console.log(this);
+        // console.log(this);
         this.roomData = roomData;
 
         // parse roomData and set up its objects and transition areas
@@ -15,10 +15,17 @@ class Room extends Phaser.GameObjects.Sprite {
         this.items = [];
         this.transitionAreas = [];
         for (let i = 0; i < roomData.items.length; i++) {
-            //TODO: does name need to match the state cause we are referring to the dining room as tableState
             this.items.push(new Item(scene, this, roomData.items[i].x, roomData.items[i].y,
                 roomData.items[i].textureKey, roomData.items[i].soundKey, roomData.items[i].message).setOrigin(0));
             this.items[i].setVisible(false);
+        }
+
+        // if this room is tv view of living room, add packing box
+        // (get box object in roomData that only the tv room has)
+        if (roomData.name === "tv") {
+            this.box = new Box(scene, this, roomData.box.x, roomData.box.y, roomData.box.textureKey,
+                roomData.box.cantPackMessage, roomData.box.packedMessage).setOrigin(0);
+            this.box.setVisible(false);
         }
 
         // set up transition areas
@@ -28,7 +35,7 @@ class Room extends Phaser.GameObjects.Sprite {
                 roomData.transitions[i].nextState).setOrigin(0));
             this.transitionAreas[i].setVisible(false);
         }
-        console.log(roomData.name, "room areas:", this.transitionAreas);
+        // console.log(roomData.name, "room areas:", this.transitionAreas);
 
         this.scale = 0.3
     }
@@ -47,5 +54,8 @@ class Room extends Phaser.GameObjects.Sprite {
         this.transitionAreas.forEach((trans) => {
             trans.visible = !trans.visible;
         });
+        if (this.box) {
+            this.box.visible = !this.box.visible;
+        }
     }
 }
