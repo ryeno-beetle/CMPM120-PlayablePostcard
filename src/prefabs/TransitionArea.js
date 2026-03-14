@@ -4,7 +4,7 @@ class TransitionArea extends Phaser.GameObjects.Sprite {
         super(scene, x, y, texture);
         scene.add.existing(this);
         
-        console.log("just added NEW TRANS AREA" + texture);
+        // console.log("just added NEW TRANS AREA" + texture);
         this.room = room;
         this.nextRoom = nextRoom;
         this.LOW_ALPHA = 0.25;
@@ -24,7 +24,7 @@ class TransitionArea extends Phaser.GameObjects.Sprite {
 
         // set up callback for when clicked
         this.on("pointerdown", (pointer, localX, localY, event) => {
-            console.log("NEXT ROOM:", this.nextRoom, "AHOY");
+            // console.log("NEXT ROOM:", this.nextRoom, "AHOY");
             
             // trans fx
             this.scene.sound.play("move-sfx");

@@ -10,10 +10,10 @@ class Play extends Phaser.Scene {
         let roomData = this.cache.json.get('roomDataJSON');
         this.rooms = [];
         for (let i = 0; i < roomData.length; i++) {
-            console.log(roomData[i].bgTextureKey);
+            // console.log(roomData[i].bgTextureKey);
             this.rooms.push(new Room(this, 0, 0, roomData[i].bgTextureKey, roomData[i]).setOrigin(0));
         }
-        console.log(this.rooms);
+        // console.log(this.rooms);
 
         // init FSM for rooms
         this.roomFSM = new StateMachine('tvState', {
@@ -29,6 +29,10 @@ class Play extends Phaser.Scene {
 
         // vars
         this.itemsPacked = 0;
+        // set up held item as a sprite whose image changes to whatever we picked up.
+        // when not holding anything, visibile will be false and key will be null
+        this.heldItem = this.add.sprite(w * 0.75, h, null).setOrigin(0.5).setScale(0.5);
+        this.heldItem.setVisible(false);
     }
 
     update() {
@@ -48,7 +52,7 @@ class Play extends Phaser.Scene {
 // room state classes
 class TVState extends State {
     enter(scene) {
-        console.log("entered tv state");
+        // console.log("entered tv state");
         this.room = scene.rooms.find(room => room.roomData.name === "tv");
         this.room.toggleVisibility();
     }
@@ -59,7 +63,7 @@ class TVState extends State {
 
 class CouchState extends State {
     enter(scene) {
-        console.log("entered couch state");
+        // console.log("entered couch state");
     }
     execute(scene) {
 
@@ -68,7 +72,7 @@ class CouchState extends State {
 
 class ShoeState extends State {
     enter(scene) {
-        console.log("entered shoe state");
+        // console.log("entered shoe state");
         this.room = scene.rooms.find(room => room.roomData.name === "shoe");
         this.room.toggleVisibility();
     }
@@ -79,7 +83,7 @@ class ShoeState extends State {
 
 class DiningState extends State {
     enter(scene) {
-        console.log("entered dining state");
+        // console.log("entered dining state");
         this.room = scene.rooms.find(room => room.roomData.name === "dining");
         this.room.toggleVisibility();
     }
@@ -90,7 +94,7 @@ class DiningState extends State {
 
 class StoveState extends State {
     enter(scene) {
-        console.log("entered stove state");
+        // console.log("entered stove state");
         this.room = scene.rooms.find(room => room.roomData.name === "stove");
         this.room.toggleVisibility();
     }
@@ -101,7 +105,7 @@ class StoveState extends State {
 
 class FridgeState extends State {
     enter(scene) {
-        console.log("entered fridge state");
+        // console.log("entered fridge state");
     }
     execute(scene) {
 
@@ -110,7 +114,7 @@ class FridgeState extends State {
 
 class BathroomState extends State {
     enter(scene) {
-        console.log("entered bathroom state");
+        // console.log("entered bathroom state");
     }
     execute(scene) {
 
@@ -119,7 +123,7 @@ class BathroomState extends State {
 
 class HouseRoomState extends State {
     enter(scene) {
-        console.log("entered HOUSE ROOM state");
+        // console.log("entered HOUSE ROOM state");
     }
     execute(scene) {
 

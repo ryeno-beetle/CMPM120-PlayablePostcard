@@ -1,13 +1,13 @@
 // prefab for a view of a room
 class Room extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, roomData) {
-        console.log(texture);
+        // console.log(texture);
         super(scene, x, y, texture);
 
         this.setVisible(false);
         scene.add.existing(this); // add to existing, displayList, updateList
         this.setDepth(-2);  // go behind transitionareas and items
-        console.log(this);
+        // console.log(this);
         this.roomData = roomData;
 
         // parse roomData and set up its objects and transition areas
