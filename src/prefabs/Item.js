@@ -15,26 +15,34 @@ class Item extends Phaser.GameObjects.Sprite {
         this.setInteractive({useHandCursor: true});
 
         this.on('pointerdown', () => {
-            this.scene.sound.play("ui-sfx");
-            //TODO: i've got to pack this first...
-            this.handleClick();
+            if (!this.scene.isInPopup) {
+                this.scene.sound.play("ui-sfx");
+                this.handleClick();
+            }
         });
     }
 
     handleClick() {
         // show popup
         // console.log(this.message);
-        // scene, message, buttonText
-        let popup = new Popup(this.scene, this.message, "pick up!");
 
-        // start holding item once popup gets closed
-        popup.on("popupClosed", () => {
-            this.holdItem();
-        });
+        // only pick up if not holding something
+        if (!this.scene.heldItem.visible) {
+            // scene, message, buttonText
+            let popup = new Popup(this.scene, this.message, "pick up!");
 
-        // make obj not interactable
-        this.off('pointerdown');
-        this.removeInteractive();
+            // start holding item once popup gets closed
+            popup.on("popupClosed", () => {
+                this.holdItem();
+            });
+
+            // make obj not interactable
+            this.off('pointerdown');
+            this.removeInteractive();
+        } else {
+            let popup = new Popup(this.scene, "Wait, I need to pack " +
+                this.scene.heldItem.texture.key + " first...", "so true!");
+        }
     }
 
     holdItem() {   

@@ -25,23 +25,24 @@ class TransitionArea extends Phaser.GameObjects.Sprite {
         // set up callback for when clicked
         this.on("pointerdown", (pointer, localX, localY, event) => {
             // console.log("NEXT ROOM:", this.nextRoom, "AHOY");
-            
-            // trans fx
-            this.scene.sound.play("move-sfx");
-            this.scene.cameras.main.fadeOut(250);
-            this.scene.cameras.main.on("camerafadeoutcomplete", () => {
-                this.scene.cameras.main.fadeIn(250);
-            
-                // do the trans
-                let currentState = this.scene.roomFSM.state;
-                // accessing the FSM's state and manipulating it from here is nontrivial
-                //      because roomFSM.state is just a string?? and not the actual state???
-                //      
-                // get FSM -> get possibleStates obj -> get state from key from FSM string -> get/call whatever
-                this.scene.roomFSM.possibleStates[currentState].room.toggleVisibility();
-                // change state
-                this.scene.roomFSM.possibleStates[currentState].stateMachine.transition(this.nextRoom);
-            });
+            if (!this.scene.isInPopup) {
+                // trans fx
+                this.scene.sound.play("move-sfx");
+                this.scene.cameras.main.fadeOut(250);
+                this.scene.cameras.main.on("camerafadeoutcomplete", () => {
+                    this.scene.cameras.main.fadeIn(250);
+                
+                    // do the trans
+                    let currentState = this.scene.roomFSM.state;
+                    // accessing the FSM's state and manipulating it from here is nontrivial
+                    //      because roomFSM.state is just a string?? and not the actual state???
+                    //      
+                    // get FSM -> get possibleStates obj -> get state from key from FSM string -> get/call whatever
+                    this.scene.roomFSM.possibleStates[currentState].room.toggleVisibility();
+                    // change state
+                    this.scene.roomFSM.possibleStates[currentState].stateMachine.transition(this.nextRoom);
+                });
+            }
         });
 
         // callbacks for adjusting alpha depending on hover

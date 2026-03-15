@@ -8,6 +8,8 @@ class Popup extends Phaser.GameObjects.Sprite {
         this.scene = scene;
         this.create();
         this.setScale(1.5);
+        
+        scene.isInPopup = true;
     }
 
     create() {
@@ -38,6 +40,8 @@ class Popup extends Phaser.GameObjects.Sprite {
         this.button.destroy();
         this.buttonText.destroy();
         this.messageText.destroy();
+
+        this.scene.isInPopup = false;
         this.destroy();
     }
 }
