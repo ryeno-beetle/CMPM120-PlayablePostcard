@@ -9,7 +9,7 @@ class Box extends Phaser.GameObjects.Sprite {
         this.cantPackMessage = cantPackMessage;
         this.packedMessage = packedMessage;
 
-        this.scale = 0.3
+        this.scale = 0.5
         this.setOrigin(1);
 
         this.setInteractive({useHandCursor: true});

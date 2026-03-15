@@ -29,8 +29,8 @@
             "textureKey": "box",
             "soundName": "aaaaa.wav",
             "soundKey": "aaaaa",
-            "x": 30,
-            "y": 400,
+            "x": 190,
+            "y": 580,
             "cantPackMessage": "I'm not holding anything to pack...",
             "packedMessage": "See you later, "
         },
@@ -38,18 +38,26 @@
             {
                 "key": "tv-to-dining",
                 "nextState": "diningState",
-                "x": 140,
-                "y": 140,
-                "w": 250,
-                "h": 205
+                "x": 280,
+                "y": 100,
+                "w": 570,
+                "h": 390
             },
             {
                 "key": "tv-to-shoe",
                 "nextState": "shoeState",
-                "x": 590,
+                "x": 1266,
                 "y": 0,
-                "w": 50,
-                "h": 480
+                "w": 100,
+                "h": 768
+            },
+            {
+                "key": "tv-to-couch",
+                "nextState": "couchState",
+                "x": 0,
+                "y": 668,
+                "w": 1366,
+                "h": 100
             }
         ]
     },
@@ -101,17 +109,17 @@
                 "key": "dining-to-tv",
                 "nextState": "tvState",
                 "x": 0,
-                "y": 430,
-                "w": 640,
-                "h": 50
+                "y": 668,
+                "w": 1366,
+                "h": 100
             },
             {
                 "key": "dining-to-stove",
                 "nextState": "stoveState",
-                "x": 590,
+                "x": 1266,
                 "y": 0,
-                "w": 50,
-                "h": 480
+                "w": 100,
+                "h": 768
             }
         ]
     },
@@ -155,8 +163,16 @@
                 "nextState": "diningState",
                 "x": 0,
                 "y": 0,
-                "w": 50,
-                "h": 480
+                "w": 100,
+                "h": 768
+            },
+            {
+                "key": "stove-to-fridge",
+                "nextState": "fridgeState",
+                "x": 1266,
+                "y": 0,
+                "w": 100,
+                "h": 768
             }
         ]
     },
@@ -181,9 +197,105 @@
                 "key": "shoe-to-tv",
                 "nextState": "tvState",
                 "x": 0,
+                "y": 668,
+                "w": 1366,
+                "h": 100
+            },
+            {
+                "key": "shoe-to-houseRoom",
+                "nextState": "houseRoomState",
+                "x": 1266,
                 "y": 0,
-                "w": 50,
-                "h": 480
+                "w": 100,
+                "h": 768
+            },
+            {
+                "key": "shoe-to-bathroom",
+                "nextState": "bathroomState",
+                "x": 80,
+                "y": 0,
+                "w": 250,
+                "h": 450
+            }
+        ]
+    },
+    {
+        "name": "fridge",
+        "assetPath": "./assets/fridge_view/",
+        "bgTextureFile": "fridge_bg.png",
+        "bgTextureKey": "fridge_bg",
+        "items": [
+        ],
+        "transitions": [
+            {
+                "key": "fridge-to-stove",
+                "nextState": "stoveState",
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 768
+            }
+        ]
+    },
+    {
+        "name": "houseRoom",
+        "assetPath": "./assets/houseRoom_view/",
+        "bgTextureFile": "houseRoom_bg.png",
+        "bgTextureKey": "houseRoom_bg",
+        "items": [
+        ],
+        "transitions": [
+            {
+                "key": "houseRoom-to-shoe",
+                "nextState": "shoeState",
+                "x": 0,
+                "y": 668,
+                "w": 1366,
+                "h": 100
+            }
+        ]
+    },
+    {
+        "name": "bathroom",
+        "assetPath": "./assets/bathroom_view/",
+        "bgTextureFile": "bathroom_bg.png",
+        "bgTextureKey": "bathroom_bg",
+        "items": [
+        ],
+        "transitions": [
+            {
+                "key": "bathroom-to-shoe",
+                "nextState": "shoeState",
+                "x": 0,
+                "y": 668,
+                "w": 1366,
+                "h": 100
+            }
+        ]
+    },
+    {
+        "name": "couch",
+        "assetPath": "./assets/couch_view/",
+        "bgTextureFile": "couch_bg.png",
+        "bgTextureKey": "couch_bg",
+        "items": [
+        ],
+        "transitions": [
+            {
+                "key": "couch-to-tv",
+                "nextState": "tvState",
+                "x": 0,
+                "y": 668,
+                "w": 1366,
+                "h": 100
+            },
+            {
+                "key": "couch-to-houseRoom",
+                "nextState": "houseRoomState",
+                "x": 30,
+                "y": 70,
+                "w": 100,
+                "h": 570
             }
         ]
     }

@@ -10,7 +10,7 @@ class Item extends Phaser.GameObjects.Sprite {
         this.pickUpSound = pickUpSound;
         this.texture = texture;
         
-        this.scale = 0.3
+        this.scale = 0.5
 
         this.setInteractive({useHandCursor: true});
 

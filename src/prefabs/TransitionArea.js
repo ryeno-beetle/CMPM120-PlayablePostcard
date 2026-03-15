@@ -7,7 +7,7 @@ class TransitionArea extends Phaser.GameObjects.Sprite {
         // console.log("just added NEW TRANS AREA" + texture);
         this.room = room;
         this.nextRoom = nextRoom;
-        this.LOW_ALPHA = 0.25;
+        this.LOW_ALPHA = 0.01;
         this.HIGH_ALPHA = 0.5;
         this.setDepth(-1);  // go behind items
         this.setAlpha(this.LOW_ALPHA);   // hide initially TODO: alpha 0 makes it uninteractable.. is that bad

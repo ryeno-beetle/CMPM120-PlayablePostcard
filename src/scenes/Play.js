@@ -77,6 +77,8 @@ class TVState extends State {
 class CouchState extends State {
     enter(scene) {
         // console.log("entered couch state");
+        this.room = scene.rooms.find(room => room.roomData.name === "couch");
+        this.room.toggleVisibility();
     }
     execute(scene) {
 
@@ -119,6 +121,8 @@ class StoveState extends State {
 class FridgeState extends State {
     enter(scene) {
         // console.log("entered fridge state");
+        this.room = scene.rooms.find(room => room.roomData.name === "fridge");
+        this.room.toggleVisibility();
     }
     execute(scene) {
 
@@ -128,6 +132,8 @@ class FridgeState extends State {
 class BathroomState extends State {
     enter(scene) {
         // console.log("entered bathroom state");
+        this.room = scene.rooms.find(room => room.roomData.name === "bathroom");
+        this.room.toggleVisibility();
     }
     execute(scene) {
 
@@ -137,6 +143,8 @@ class BathroomState extends State {
 class HouseRoomState extends State {
     enter(scene) {
         // console.log("entered HOUSE ROOM state");
+        this.room = scene.rooms.find(room => room.roomData.name === "houseRoom");
+        this.room.toggleVisibility();
     }
     execute(scene) {
 

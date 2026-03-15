@@ -7,28 +7,33 @@ class Popup extends Phaser.GameObjects.Sprite {
         this.buttonText = buttonText;
         this.scene = scene;
         this.create();
-        this.setScale(1.5);
+        this.setScale(2.5);
         
         scene.isInPopup = true;
     }
 
     create() {
         // make message text
-        this.messageText = this.scene.add.text(this.x - 200, this.y - 50, this.message, {fontSize: 18, color: '#362626'}).setOrigin(0).setDepth(101);
-
+        this.messageText = this.scene.add.text(this.x - this.width * 1.1, this.y - this.height * 0.8, this.message,
+            {fontSize: 28, color: '#362626'}).setOrigin(0).setDepth(101);
+        
         // make button
-        let x = 370;
-        let y = 240;
-        this.button = this.scene.add.sprite(x, y, 'button').setOrigin(0).setScale(1.5);
-        this.buttonText = this.scene.add.text(x+15, y+10, this.buttonText, {fontSize: 18, color: '#362626'}).setOrigin(0).setDepth(101);
-        this.button.setDepth(100);
-        // console.log(this.button);
+        let x = this.x + (this.width * 0.6);
+        let y = this.y + (this.height * 0.9);
+        this.button = this.scene.add.sprite(x, y, 'button').setOrigin(0).setScale(2).setDepth(100);
+        this.buttonText = this.scene.add.text(x+22, y+15, this.buttonText, {fontSize: 24, color: '#362626'}).setOrigin(0).setDepth(101);
 
         this.button.setInteractive({useHandCursor: true});
 
         this.button.on('pointerdown', () => {
-            // this.scene.sound.play("ui-sfx");
             this.handleClick();
+        });
+        // darken button on hover
+        this.button.on("pointerover", (pointer, localX, localY, event) => {
+            this.button.setTint(0xEEEEEE);
+        });
+        this.button.on("pointerout", (pointer, localX, localY, event) => {
+            this.button.setTint(0xFFFFFF);
         });
     }
 
