@@ -10,6 +10,7 @@ class Box extends Phaser.GameObjects.Sprite {
         this.packedMessage = packedMessage;
 
         this.scale = 0.3
+        this.setOrigin(1);
 
         this.setInteractive({useHandCursor: true});
 
@@ -18,6 +19,29 @@ class Box extends Phaser.GameObjects.Sprite {
             this.handleClick();
         });
 
+        // tween to shake box when something is packed
+        //TODO: it still kinda looks like it rotates around the top left for some reason
+        this.shakeTween = scene.tweens.chain({
+            targets: this,
+            // ease: 'Sine.easeInOut',
+            loop: 0,
+            paused: true,
+            persist: true,  // do not destroy after finishing
+            tweens: [
+                {
+                    angle: -5,
+                    duration: 30,
+                },
+                {
+                    angle: 5,
+                    duration: 60,
+                },
+                {
+                    angle: 0,
+                    duration: 30,
+                }
+            ]
+        });
     }
 
     handleClick() {
@@ -36,6 +60,10 @@ class Box extends Phaser.GameObjects.Sprite {
         // remove held item sprite
         this.scene.heldItem.setTexture(null);
         this.scene.heldItem.setVisible(false);
+
+        this.scene.sound.play("pack-sfx");
+        this.shakeTween.restart();
+
         // increment packed counter in play scene and trigger game end if it's the last item
         this.scene.itemsPacked += 1;
         if (this.scene.itemsPacked == TOTAL_ITEMS) {

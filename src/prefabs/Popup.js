@@ -33,6 +33,7 @@ class Popup extends Phaser.GameObjects.Sprite {
     handleClick() {
         // this.item.packItem();
         // emit signal that popup was closed, and args for listeners
+        this.scene.sound.play("ui-sfx");
         this.emit("popupClosed");
         this.button.destroy();
         this.buttonText.destroy();

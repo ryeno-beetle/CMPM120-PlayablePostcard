@@ -16,6 +16,7 @@ class Item extends Phaser.GameObjects.Sprite {
 
         this.on('pointerdown', () => {
             this.scene.sound.play("ui-sfx");
+            //TODO: i've got to pack this first...
             this.handleClick();
         });
     }

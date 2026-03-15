@@ -7,7 +7,7 @@
         "items": [
             {
                 "textureFile": "tv.png", 
-                "textureKey": "tv",
+                "textureKey": "TV",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
                 "x": 240,
@@ -16,7 +16,7 @@
             },
             {
                 "textureFile": "nagito.png", 
-                "textureKey": "nagito",
+                "textureKey": "Nagito",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
                 "x": 180,
@@ -70,21 +70,21 @@
             },
             {
                 "textureFile": "cat_photos.png", 
-                "textureKey": "cat_photos",
+                "textureKey": "cat photos",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
                 "x": 170,
                 "y": 50,
-                "message": "we really never found out who he was?"
+                "message": "who was he??"
             },
             {
                 "textureFile": "hot_plate.png", 
-                "textureKey": "hot_plate",
+                "textureKey": "hot plate",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
                 "x": 230,
                 "y": 240,
-                "message": "恭喜发财!!!!"
+                "message": "恭喜發財!!!!"
             },
             {
                 "textureFile": "inchworm.png", 
@@ -132,7 +132,7 @@
             },
             {
                 "textureFile": "fox.png", 
-                "textureKey": "fox",
+                "textureKey": "fox timer",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
                 "x": 250,
