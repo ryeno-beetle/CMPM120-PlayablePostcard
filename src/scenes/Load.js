@@ -47,6 +47,10 @@ class Load extends Phaser.Scene {
         this.load.audio("ui-sfx", "tap.wav");
         this.load.audio("pack-sfx", "pack.wav");
         this.load.audio("move-sfx", "steps.wav");
+
+        // load particles
+        this.load.path = "./assets/particles/";
+        this.load.image("poofParticle", "poofParticle.png")
     }
 
     create() {

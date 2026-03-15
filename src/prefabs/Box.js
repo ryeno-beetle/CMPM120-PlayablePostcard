@@ -59,9 +59,16 @@ class Box extends Phaser.GameObjects.Sprite {
     }
 
     packItem() {
-        // remove held item sprite
+        // remove held item sprite, do particles
         this.scene.heldItem.setTexture(null);
         this.scene.heldItem.setVisible(false);
+
+        let poofParticles = this.scene.add.particles(this.scene.heldItem.x, this.scene.heldItem.y, "poofParticle",
+            this.scene.itemPoofParticlesConfig);
+        poofParticles.start();
+        poofParticles.on("complete", () => {
+            poofParticles.destroy();
+        });
 
         this.scene.sound.play("pack-sfx");
         this.shakeTween.restart();

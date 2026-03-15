@@ -36,7 +36,6 @@ class Play extends Phaser.Scene {
         // if we are in dialogue, we don't want to be able to interact with other things
         this.isInPopup = false;
 
-
         // tween to bob held item slightly
         this.heldItemTween = this.tweens.add({
             targets: this.heldItem,
@@ -46,6 +45,19 @@ class Play extends Phaser.Scene {
             repeat: -1,
             yoyo: true,
         });
+
+        // particles for item no longer being held
+        this.itemPoofParticlesConfig = {
+            scale: {start: 2, end: 0},
+            alpha: {start: 0.9, end: 0},
+            speed: {min: -400, max: 400},
+            angle: {min: 0, max: 360},
+            blendMode: 'SCREEN',
+            count: 1,
+            frequency: 20,
+            lifespan: 500,
+            duration: 150,
+        };
     }
 
     update() {
