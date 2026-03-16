@@ -21,7 +21,6 @@ class Load extends Phaser.Scene {
                 // console.log("in " + roomData[i].name + " room , loading item: " + objs[j].textureKey);
                 this.load.image(objs[j].textureKey, objs[j].textureFile);
             }
-            // TODO: sound will have a different load path, how do we want to handle that
 
             // load box if currently loading tv room
             if (roomData[i].name === "tv") {
@@ -32,7 +31,7 @@ class Load extends Phaser.Scene {
             let transes = roomData[i].transitions;
             for (let j = 0; j < transes.length; j++) {
                 let rt = this.add.renderTexture(-w, 0, transes[j].w, transes[j].h);
-                rt.fill(0xFFFFFF);  //TODO: set better color
+                rt.fill(0xFFFFFF);
                 rt.saveTexture(transes[j].key);
             }
         }
@@ -47,6 +46,17 @@ class Load extends Phaser.Scene {
         this.load.audio("ui-sfx", "tap.wav");
         this.load.audio("pack-sfx", "pack.wav");
         this.load.audio("move-sfx", "steps.wav");
+        this.load.audio("lightstring-sfx", "lightstring.wav");
+        // sounds for different item pickups
+        this.load.audio("ceramic-sfx", "ceramic.wav");
+        this.load.audio("heavy-plastic-sfx", "heavy-plastic.wav");
+        this.load.audio("medium-plastic-sfx", "medium-plastic.wav");
+        this.load.audio("metal-sfx", "metal.wav");
+        this.load.audio("paper-sfx", "paper.wav");
+        this.load.audio("plush-sfx", "plush.wav");
+        this.load.audio("rattly-sfx", "rattly.wav");
+        this.load.audio("timer-sfx", "timer.wav");
+        this.load.audio("untaping-sfx", "untaping.wav");
 
         // load particles
         this.load.path = "./assets/particles/";
@@ -55,7 +65,7 @@ class Load extends Phaser.Scene {
         // load other random things......
         this.load.path = "./assets/";
         this.load.spritesheet("light-string-sheet", "houseRoom_view/light_string_sheet.png", {
-            frameWidth: 23, frameHeight: 600, startFrame: 0, endFrame: 1
+            frameWidth: 25, frameHeight: 600, startFrame: 0, endFrame: 1
         });
         this.load.image("houseRoom_bg_near", "houseRoom_view/houseRoom_bg_near.png");
     }

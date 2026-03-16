@@ -8,8 +8,7 @@
             {
                 "textureFile": "tv.png", 
                 "textureKey": "TV",
-                "soundName": "aaaaa.wav",
-                "soundKey": "aaaaa",
+                "soundKey": "heavy-plastic-sfx",
                 "x": 750,
                 "y": 290,
                 "message": "our beautiful tv <3"
@@ -18,8 +17,6 @@
         "box": {
             "textureFile": "box.png", 
             "textureKey": "box",
-            "soundName": "aaaaa.wav",
-            "soundKey": "aaaaa",
             "x": 190,
             "y": 580,
             "cantPackMessage": "I'm not holding anything to pack...",
@@ -61,8 +58,7 @@
             {
                 "textureFile": "horse.png", 
                 "textureKey": "horse",
-                "soundName": "aaaaa.wav",
-                "soundKey": "aaaaa",
+                "soundKey": "medium-plastic-sfx",
                 "x": 1000,
                 "y": 550,
                 "message": "horses horses horses horses"
@@ -70,8 +66,7 @@
             {
                 "textureFile": "cat_photos.png", 
                 "textureKey": "cat photos",
-                "soundName": "aaaaa.wav",
-                "soundKey": "aaaaa",
+                "soundKey": "paper-sfx",
                 "x": 340,
                 "y": 50,
                 "message": "who was he??"
@@ -79,8 +74,7 @@
             {
                 "textureFile": "hot_plate.png", 
                 "textureKey": "hot plate",
-                "soundName": "aaaaa.wav",
-                "soundKey": "aaaaa",
+                "soundKey": "heavy-plastic-sfx",
                 "x": 400,
                 "y": 480,
                 "message": "恭喜發財!!!!"
@@ -88,8 +82,7 @@
             {
                 "textureFile": "inchworm.png", 
                 "textureKey": "inchworm",
-                "soundName": "aaaaa.wav",
-                "soundKey": "aaaaa",
+                "soundKey": "ceramic-sfx",
                 "x": 100,
                 "y": 370,
                 "message": "so fashionable!"
@@ -123,8 +116,7 @@
             {
                 "textureFile": "blender.png", 
                 "textureKey": "blender",
-                "soundName": "aaaaa.wav",
-                "soundKey": "aaaaa",
+                "soundKey": "heavy-plastic-sfx",
                 "x": 800,
                 "y": 300,
                 "message": "BLENDERRRR"
@@ -132,8 +124,7 @@
             {
                 "textureFile": "fox.png", 
                 "textureKey": "fox timer",
-                "soundName": "aaaaa.wav",
-                "soundKey": "aaaaa",
+                "soundKey": "timer-sfx",
                 "x": 600,
                 "y": 450,
                 "message": "tickticktickticktcitkcitcktickticktcitkcitkcitkci"
@@ -141,8 +132,7 @@
             {
                 "textureFile": "pan.png", 
                 "textureKey": "pan",
-                "soundName": "aaaaa.wav",
-                "soundKey": "aaaaa",
+                "soundKey": "metal-sfx",
                 "x": 300,
                 "y": 440,
                 "message": "seems a little smoother than when the\nyear started..."
@@ -176,8 +166,7 @@
             {
                 "textureFile": "boots.png", 
                 "textureKey": "boots",
-                "soundName": "aaaaa.wav",
-                "soundKey": "aaaaa",
+                "soundKey": "rattly-sfx",
                 "x": 750,
                 "y": 570,
                 "message": "full of walnuts..."
@@ -243,6 +232,14 @@
                 "y": 668,
                 "w": 1366,
                 "h": 100
+            },
+            {
+                "key": "houseRoom-to-couch",
+                "nextState": "couchState",
+                "x": 1266,
+                "y": 0,
+                "w": 100,
+                "h": 768
             }
         ]
     },
@@ -273,8 +270,7 @@
             {
                 "textureFile": "nagito.png", 
                 "textureKey": "Nagito",
-                "soundName": "aaaaa.wav",
-                "soundKey": "aaaaa",
+                "soundKey": "untaping-sfx",
                 "x": 900,
                 "y": 60,
                 "message": "oh, that's where he was"

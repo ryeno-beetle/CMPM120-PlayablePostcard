@@ -12,6 +12,7 @@ class Item extends Phaser.GameObjects.Sprite {
         
         this.scale = 0.45;
 
+        //TODO: why can we not add pixel perfect here
         this.setInteractive({useHandCursor: true});
 
         this.on('pointerdown', () => {
@@ -58,7 +59,8 @@ class Item extends Phaser.GameObjects.Sprite {
         // give our image key to the scene's heldItem
         this.scene.heldItem.setTexture(this.texture);
         this.scene.heldItem.setVisible(true);
-        this.scene.sound.play("pack-sfx");  //TODO: pickup sfx
+        this.scene.heldItemSound = this.pickUpSound;
+        this.scene.sound.play(this.pickUpSound);
         // remove from parent's item list
         this.room.items.splice(this.room.items.indexOf(this), 1);
         // destroy this item, but the play scene will have the sprite until packed

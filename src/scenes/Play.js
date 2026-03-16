@@ -33,6 +33,7 @@ class Play extends Phaser.Scene {
         // when not holding anything, visibile will be false and key will be null
         this.heldItem = this.add.sprite(w * 0.75, h * 0.9, null).setOrigin(0.5).setScale(0.6);
         this.heldItem.setVisible(false);
+        this.heldItemSound = null;
         // if we are in dialogue, we don't want to be able to interact with other things
         this.isInPopup = false;
 

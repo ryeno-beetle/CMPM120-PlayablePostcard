@@ -45,7 +45,7 @@ class Room extends Phaser.GameObjects.Sprite {
             let LOW_INTENSITY = -5;
             let HIGH_INTENSITY = 4;
             // x, y, radius, color, intensity
-            this.light = this.scene.lights.addLight(425, 25, 2000, 0xFFFFFF, LOW_INTENSITY);
+            this.light = this.scene.lights.addLight(425, 30, 2000, 0xFFFFFF, LOW_INTENSITY);
             this.light.setVisible(false);    // start true so that when we enter room for the first time it's false
             // be affected by lighting
             // https://docs.phaser.io/api-documentation/class/gameobjects-lightsplugin
@@ -59,7 +59,7 @@ class Room extends Phaser.GameObjects.Sprite {
             this.lightString.setInteractive({useHandCursor: true});
             this.lightString.on('pointerdown', () => {
                 if (!this.scene.isInPopup) {
-                    this.scene.sound.play("ui-sfx"); //TODO: light click sfx
+                    this.scene.sound.play("lightstring-sfx"); //TODO: light click sfx
                     this.lightString.anims.play("pull-string");
                     this.lightString.once("animationcomplete", () => {
                         this.lightString.setFrame(0);
@@ -68,13 +68,13 @@ class Room extends Phaser.GameObjects.Sprite {
                     });
                 }
             });
-            this.on("pointerover", (pointer, localX, localY, event) => {
+            this.lightString.on("pointerover", (pointer, localX, localY, event) => {
                 if (!this.scene.isInPopup) {
-                    this.setTint(0xEEEEEE);
+                    this.lightString.setTintFill(0xFFFFFF); //TODO: this isn't working on pages?
                 }
             });
-            this.on("pointerout", (pointer, localX, localY, event) => {
-                this.setTint(0xFFFFFF);
+            this.lightString.on("pointerout", (pointer, localX, localY, event) => {
+                this.lightString.clearTint();
             });
         }
     }

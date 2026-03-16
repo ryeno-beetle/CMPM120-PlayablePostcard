@@ -12,7 +12,7 @@ class Box extends Phaser.GameObjects.Sprite {
         this.scale = 0.5
         this.setOrigin(1);
 
-        this.setInteractive({useHandCursor: true});
+        this.setInteractive({useHandCursor: true, pixelPerfect: true});
 
         this.on('pointerdown', () => {
             if (!this.scene.isInPopup) {
@@ -82,12 +82,13 @@ class Box extends Phaser.GameObjects.Sprite {
         // desaturate all the room bgs a little so the apt looks more empty :/
         this.scene.rooms.forEach((room) => {
             // amount, multiply? else false
-            room.cmFX.saturate(-1 / TOTAL_ITEMS / 3, true); //TODO: maybe make it more subtle
+            room.cmFX.saturate(-1 / TOTAL_ITEMS / 1, true); //TODO: okay as of 10 items and -1 / total, it's fairly obvious by the end
             // room.cmFX.brightness(1 + 1 / TOTAL_ITEMS / 20, true);
         });
 
 
         this.scene.sound.play("pack-sfx");
+        this.scene.sound.play(this.scene.heldItemSound, {volume: 0.4});
         this.shakeTween.restart();
 
         // increment packed counter in play scene and trigger game end if it's the last item
