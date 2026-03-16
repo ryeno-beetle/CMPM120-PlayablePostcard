@@ -7,7 +7,6 @@ class Room extends Phaser.GameObjects.Sprite {
         this.setVisible(false);
         scene.add.existing(this); // add to existing, displayList, updateList
         this.setDepth(-2);  // go behind transitionareas and items
-        // console.log(this);
         this.roomData = roomData;
 
         // parse roomData and set up its objects and transition areas
@@ -27,32 +26,56 @@ class Room extends Phaser.GameObjects.Sprite {
                 roomData.transitions[i].nextState).setOrigin(0));
             this.transitionAreas[i].setVisible(false);
         }
-        // console.log(roomData.name, "room areas:", this.transitionAreas);
-
-        // this.scale = 0.3
 
         // create colorMatrix to be able to change saturation
         this.cmFX = this.preFX.addColorMatrix();
 
+        // --- ROOM SPECIFIC THINGS ---
         // if this room is tv view of living room, add packing box
         // (get box object in roomData that only the tv room has)
         if (roomData.name === "tv") {
             this.box = new Box(scene, this, roomData.box.x, roomData.box.y, roomData.box.textureKey,
                 roomData.box.cantPackMessage, roomData.box.packedMessage).setOrigin(0);
             this.box.setVisible(false);
-            console.log(this.box)
+            // console.log(this.box)
         }
 
         // if this room is house room (closet), add light and string to turn it on
         if (roomData.name === "houseRoom") {
+            let LOW_INTENSITY = -5;
+            let HIGH_INTENSITY = 4;
             // x, y, radius, color, intensity
-            this.light = this.scene.lights.addLight(425, 25, 2000, 0xFFFFFF, 3);
-            this.light.setVisible(false);
+            this.light = this.scene.lights.addLight(425, 25, 2000, 0xFFFFFF, LOW_INTENSITY);
+            this.light.setVisible(false);    // start true so that when we enter room for the first time it's false
             // be affected by lighting
             // https://docs.phaser.io/api-documentation/class/gameobjects-lightsplugin
             this.setPipeline("Light2D");
-
-            //TODO: make string to turn on/off
+            // add foreground not affected by lighting
+            this.foreground = this.scene.add.sprite(0, 0, "houseRoom_bg_near").setOrigin(0).setDepth(-2);
+            this.foreground.setVisible(false);
+            
+            this.lightString = this.scene.add.sprite(this.light.x + 20, this.light.y, "light-string-sheet", 0).setOrigin(0);
+            this.lightString.setVisible(false);
+            this.lightString.setInteractive({useHandCursor: true});
+            this.lightString.on('pointerdown', () => {
+                if (!this.scene.isInPopup) {
+                    this.scene.sound.play("ui-sfx"); //TODO: light click sfx
+                    this.lightString.anims.play("pull-string");
+                    this.lightString.once("animationcomplete", () => {
+                        this.lightString.setFrame(0);
+                        // toggle light by toggling intensity
+                        this.light.intensity = (this.light.intensity <= 0) ? HIGH_INTENSITY : LOW_INTENSITY;
+                    });
+                }
+            });
+            this.on("pointerover", (pointer, localX, localY, event) => {
+                if (!this.scene.isInPopup) {
+                    this.setTint(0xEEEEEE);
+                }
+            });
+            this.on("pointerout", (pointer, localX, localY, event) => {
+                this.setTint(0xFFFFFF);
+            });
         }
     }
 
@@ -64,13 +87,13 @@ class Room extends Phaser.GameObjects.Sprite {
         this.transitionAreas.forEach((trans) => {
             trans.visible = !trans.visible;
         });
-        if (this.box) {
-            console.log(this.box)
+        if (this.box) { // for tv view
             this.box.visible = !this.box.visible;
         }
-        if (this.light) {
-            console.log(this.light)
+        if (this.light) {   // for house room (closet)
             this.light.visible = !this.light.visible;
+            this.lightString.visible = !this.lightString.visible;
+            this.foreground.visible = !this.foreground.visible;
         }
     }
 }

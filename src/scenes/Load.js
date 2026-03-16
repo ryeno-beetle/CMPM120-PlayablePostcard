@@ -51,10 +51,28 @@ class Load extends Phaser.Scene {
         // load particles
         this.load.path = "./assets/particles/";
         this.load.image("poofParticle", "poofParticle.png")
+
+        // load other random things......
+        this.load.path = "./assets/";
+        this.load.spritesheet("light-string-sheet", "houseRoom_view/light_string_sheet.png", {
+            frameWidth: 23, frameHeight: 600, startFrame: 0, endFrame: 1
+        });
+        this.load.image("houseRoom_bg_near", "houseRoom_view/houseRoom_bg_near.png");
     }
 
     create() {
         // start menu
         this.scene.start('menuScene');
+
+        // light string anim
+        if (!this.anims.exists("pull-string")) {
+            this.anims.create({
+                key: "pull-string",
+                frames: this.anims.generateFrameNumbers("light-string-sheet", {
+                    start: 0, end: 1, first: 0
+                }),
+                frameRate: 8
+            });
+        }
     }
 }
