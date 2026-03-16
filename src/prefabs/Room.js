@@ -38,6 +38,9 @@ class Room extends Phaser.GameObjects.Sprite {
         // console.log(roomData.name, "room areas:", this.transitionAreas);
 
         // this.scale = 0.3
+
+        // create colorMatrix to be able to change saturation
+        this.cmFX = this.preFX.addColorMatrix();
     }
 
     create() {

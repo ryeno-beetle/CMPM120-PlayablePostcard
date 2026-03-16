@@ -70,6 +70,14 @@ class Box extends Phaser.GameObjects.Sprite {
             poofParticles.destroy();
         });
 
+        // desaturate all the room bgs a little so the apt looks more empty :/
+        this.scene.rooms.forEach((room) => {
+            // amount, multiply? else false
+            room.cmFX.saturate(-1 / TOTAL_ITEMS / 3, true); //TODO: maybe make it more subtle
+            // room.cmFX.brightness(1 + 1 / TOTAL_ITEMS / 20, true);
+        });
+
+
         this.scene.sound.play("pack-sfx");
         this.shakeTween.restart();
 
