@@ -10,7 +10,7 @@ class Item extends Phaser.GameObjects.Sprite {
         this.pickUpSound = pickUpSound;
         this.texture = texture;
         
-        this.scale = 0.5;
+        this.scale = 0.45;
 
         this.setInteractive({useHandCursor: true});
 
@@ -19,6 +19,15 @@ class Item extends Phaser.GameObjects.Sprite {
                 this.scene.sound.play("ui-sfx");
                 this.handleClick();
             }
+        });
+        // darken on hover
+        this.on("pointerover", (pointer, localX, localY, event) => {
+            if (!this.scene.isInPopup) {
+                this.setTint(0xEEEEEE);
+            }
+        });
+        this.on("pointerout", (pointer, localX, localY, event) => {
+            this.setTint(0xFFFFFF);
         });
     }
 

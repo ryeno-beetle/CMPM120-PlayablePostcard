@@ -32,7 +32,7 @@ class Load extends Phaser.Scene {
             let transes = roomData[i].transitions;
             for (let j = 0; j < transes.length; j++) {
                 let rt = this.add.renderTexture(-w, 0, transes[j].w, transes[j].h);
-                rt.fill(0xFFFAAA);  //TODO: set better color
+                rt.fill(0xFFFFFF);  //TODO: set better color
                 rt.saveTexture(transes[j].key);
             }
         }

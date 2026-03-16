@@ -20,14 +20,6 @@ class Room extends Phaser.GameObjects.Sprite {
             this.items[i].setVisible(false);
         }
 
-        // if this room is tv view of living room, add packing box
-        // (get box object in roomData that only the tv room has)
-        if (roomData.name === "tv") {
-            this.box = new Box(scene, this, roomData.box.x, roomData.box.y, roomData.box.textureKey,
-                roomData.box.cantPackMessage, roomData.box.packedMessage).setOrigin(0);
-            this.box.setVisible(false);
-        }
-
         // set up transition areas
         for (let i = 0; i < roomData.transitions.length; i++) {
             this.transitionAreas.push(new TransitionArea(scene, roomData.name,
@@ -41,14 +33,29 @@ class Room extends Phaser.GameObjects.Sprite {
 
         // create colorMatrix to be able to change saturation
         this.cmFX = this.preFX.addColorMatrix();
+
+        // if this room is tv view of living room, add packing box
+        // (get box object in roomData that only the tv room has)
+        if (roomData.name === "tv") {
+            this.box = new Box(scene, this, roomData.box.x, roomData.box.y, roomData.box.textureKey,
+                roomData.box.cantPackMessage, roomData.box.packedMessage).setOrigin(0);
+            this.box.setVisible(false);
+            console.log(this.box)
+        }
+
+        // if this room is house room (closet), add light and string to turn it on
+        if (roomData.name === "houseRoom") {
+            // x, y, radius, color, intensity
+            this.light = this.scene.lights.addLight(425, 25, 2000, 0xFFFFFF, 3);
+            this.light.setVisible(false);
+            // be affected by lighting
+            // https://docs.phaser.io/api-documentation/class/gameobjects-lightsplugin
+            this.setPipeline("Light2D");
+
+            //TODO: make string to turn on/off
+        }
     }
 
-    create() {
-
-    }
-
-    //TODO: can we add items to the Room instead of scene? so that we could just room.setVisible(false)
-    //      and that would change its and its' items visibility
     toggleVisibility() {
         this.visible = !this.visible;
         this.items.forEach((item) => {
@@ -58,7 +65,12 @@ class Room extends Phaser.GameObjects.Sprite {
             trans.visible = !trans.visible;
         });
         if (this.box) {
+            console.log(this.box)
             this.box.visible = !this.box.visible;
+        }
+        if (this.light) {
+            console.log(this.light)
+            this.light.visible = !this.light.visible;
         }
     }
 }

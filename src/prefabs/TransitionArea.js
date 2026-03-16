@@ -8,7 +8,7 @@ class TransitionArea extends Phaser.GameObjects.Sprite {
         this.room = room;
         this.nextRoom = nextRoom;
         this.LOW_ALPHA = 0.01;
-        this.HIGH_ALPHA = 0.5;
+        this.HIGH_ALPHA = 0.3;
         this.setDepth(-1);  // go behind items
         this.setAlpha(this.LOW_ALPHA);   // hide initially TODO: alpha 0 makes it uninteractable.. is that bad
 
@@ -47,7 +47,9 @@ class TransitionArea extends Phaser.GameObjects.Sprite {
 
         // callbacks for adjusting alpha depending on hover
         this.on("pointerover", (pointer, localX, localY, event) => {
-            this.setAlpha(this.HIGH_ALPHA);
+            if (!this.scene.isInPopup) {
+                this.setAlpha(this.HIGH_ALPHA);
+            }
         });
         this.on("pointerout", (pointer, localX, localY, event) => {
             this.setAlpha(this.LOW_ALPHA);

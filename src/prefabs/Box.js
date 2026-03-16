@@ -20,6 +20,15 @@ class Box extends Phaser.GameObjects.Sprite {
                 this.handleClick();
             }
         });
+        // darken on hover
+        this.on("pointerover", (pointer, localX, localY, event) => {
+            if (!this.scene.isInPopup) {
+                this.setTint(0xEEEEEE);
+            }
+        });
+        this.on("pointerout", (pointer, localX, localY, event) => {
+            this.setTint(0xFFFFFF);
+        });
 
         // tween to shake box when something is packed
         //TODO: it still kinda looks like it rotates around the top left for some reason

@@ -31,7 +31,7 @@ class Play extends Phaser.Scene {
         this.itemsPacked = 0;
         // set up held item as a sprite whose image changes to whatever we picked up.
         // when not holding anything, visibile will be false and key will be null
-        this.heldItem = this.add.sprite(w * 0.75, h * 0.9, null).setOrigin(0.5).setScale(0.5);
+        this.heldItem = this.add.sprite(w * 0.75, h * 0.9, null).setOrigin(0.5).setScale(0.6);
         this.heldItem.setVisible(false);
         // if we are in dialogue, we don't want to be able to interact with other things
         this.isInPopup = false;
@@ -58,6 +58,9 @@ class Play extends Phaser.Scene {
             lifespan: 500,
             duration: 150,
         };
+
+        // enable light for house room
+        this.lights.enable();
     }
 
     update() {

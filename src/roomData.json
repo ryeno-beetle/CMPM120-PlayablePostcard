@@ -10,18 +10,9 @@
                 "textureKey": "TV",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
-                "x": 240,
-                "y": 220,
+                "x": 750,
+                "y": 290,
                 "message": "our beautiful tv <3"
-            },
-            {
-                "textureFile": "nagito.png", 
-                "textureKey": "Nagito",
-                "soundName": "aaaaa.wav",
-                "soundKey": "aaaaa",
-                "x": 180,
-                "y": 30,
-                "message": "oh, that's where he was"
             }
         ],
         "box": {
@@ -72,8 +63,8 @@
                 "textureKey": "horse",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
-                "x": 430,
-                "y": 220,
+                "x": 1000,
+                "y": 550,
                 "message": "horses horses horses horses"
             },
             {
@@ -81,7 +72,7 @@
                 "textureKey": "cat photos",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
-                "x": 170,
+                "x": 340,
                 "y": 50,
                 "message": "who was he??"
             },
@@ -90,8 +81,8 @@
                 "textureKey": "hot plate",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
-                "x": 230,
-                "y": 240,
+                "x": 400,
+                "y": 480,
                 "message": "恭喜發財!!!!"
             },
             {
@@ -100,7 +91,7 @@
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
                 "x": 100,
-                "y": 200,
+                "y": 370,
                 "message": "so fashionable!"
             }
         ],
@@ -134,8 +125,8 @@
                 "textureKey": "blender",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
-                "x": 450,
-                "y": 100,
+                "x": 800,
+                "y": 300,
                 "message": "BLENDERRRR"
             },
             {
@@ -143,8 +134,8 @@
                 "textureKey": "fox timer",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
-                "x": 250,
-                "y": 240,
+                "x": 600,
+                "y": 450,
                 "message": "tickticktickticktcitkcitcktickticktcitkcitkcitkci"
             },
             {
@@ -152,8 +143,8 @@
                 "textureKey": "pan",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
-                "x": 65,
-                "y": 255,
+                "x": 300,
+                "y": 440,
                 "message": "seems a little smoother than when the\nyear started..."
             }
         ],
@@ -187,8 +178,8 @@
                 "textureKey": "boots",
                 "soundName": "aaaaa.wav",
                 "soundKey": "aaaaa",
-                "x": 350,
-                "y": 310,
+                "x": 750,
+                "y": 570,
                 "message": "full of walnuts..."
             }
         ],
@@ -213,9 +204,9 @@
                 "key": "shoe-to-bathroom",
                 "nextState": "bathroomState",
                 "x": 80,
-                "y": 0,
+                "y": 30,
                 "w": 250,
-                "h": 450
+                "h": 425
             }
         ]
     },
@@ -279,6 +270,15 @@
         "bgTextureFile": "couch_bg.png",
         "bgTextureKey": "couch_bg",
         "items": [
+            {
+                "textureFile": "nagito.png", 
+                "textureKey": "Nagito",
+                "soundName": "aaaaa.wav",
+                "soundKey": "aaaaa",
+                "x": 900,
+                "y": 60,
+                "message": "oh, that's where he was"
+            }
         ],
         "transitions": [
             {
