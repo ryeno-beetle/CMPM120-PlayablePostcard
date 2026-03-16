@@ -67,6 +67,8 @@ class Play extends Phaser.Scene {
         this.bgSFX = this.sound.add("construction-bg-sfx").setLoop(true).setVolume(0.7);
         this.bgSFX.play();
         this.bgSFX.setSeek(Phaser.Math.FloatBetween(0, this.bgSFX.totalDuration)); // start at random time
+
+        this.cameras.main.fadeIn(250);
     }
 
     update() {

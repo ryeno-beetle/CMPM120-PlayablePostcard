@@ -82,7 +82,7 @@ class Box extends Phaser.GameObjects.Sprite {
         // desaturate all the room bgs a little so the apt looks more empty :/
         this.scene.rooms.forEach((room) => {
             // amount, multiply? else false
-            room.cmFX.saturate(-1 / TOTAL_ITEMS / 2, true);
+            room.cmFX.saturate(-1 / TOTAL_ITEMS / 1, true);
             // room.cmFX.brightness(1 + 1 / TOTAL_ITEMS / 20, true);
         });
 

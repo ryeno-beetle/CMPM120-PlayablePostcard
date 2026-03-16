@@ -18,35 +18,20 @@ class Popup extends Phaser.GameObjects.Sprite {
             {fontSize: 28, color: '#362626'}).setOrigin(0).setDepth(101);
         
         // make button
-        let x = this.x + (this.width * 0.6);
-        let y = this.y + (this.height * 0.9);
-        this.button = this.scene.add.sprite(x, y, 'button').setOrigin(0).setScale(2).setDepth(100);
-        this.buttonText = this.scene.add.text(x+22, y+15, this.buttonText, {fontSize: 24, color: '#362626'}).setOrigin(0).setDepth(101);
+        let x = this.x + (this.width * 0.75);
+        let y = this.y + (this.height);
+        this.button = new Button(this.scene, x, y, this.buttonText);
 
-        this.button.setInteractive({useHandCursor: true});
+        // listen for click
+        this.button.on("pointerdown", () => {
+            this.scene.sound.play("ui-sfx");
+            this.emit("popupClosed");
+            this.button.buttonText.destroy();
+            this.button.destroy();
+            this.messageText.destroy();
 
-        this.button.on('pointerdown', () => {
-            this.handleClick();
+            this.scene.isInPopup = false;
+            this.destroy();
         });
-        // darken button on hover
-        this.button.on("pointerover", (pointer, localX, localY, event) => {
-            this.button.setTint(0xEEEEEE);
-        });
-        this.button.on("pointerout", (pointer, localX, localY, event) => {
-            this.button.setTint(0xFFFFFF);
-        });
-    }
-
-    handleClick() {
-        // this.item.packItem();
-        // emit signal that popup was closed, and args for listeners
-        this.scene.sound.play("ui-sfx");
-        this.emit("popupClosed");
-        this.button.destroy();
-        this.buttonText.destroy();
-        this.messageText.destroy();
-
-        this.scene.isInPopup = false;
-        this.destroy();
     }
 }

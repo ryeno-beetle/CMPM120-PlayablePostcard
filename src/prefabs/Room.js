@@ -30,7 +30,7 @@ class Room extends Phaser.GameObjects.Sprite {
         // create colorMatrix to be able to change saturation
         this.cmFX = this.preFX.addColorMatrix();
 
-        // --- ROOM SPECIFIC THINGS ---
+        // --- ROOM SPECIFIC THINGS BELOW ---
         // if this room is tv view of living room, add packing box
         // (get box object in roomData that only the tv room has)
         if (roomData.name === "tv") {
@@ -59,7 +59,7 @@ class Room extends Phaser.GameObjects.Sprite {
             this.lightString.setInteractive({useHandCursor: true});
             this.lightString.on('pointerdown', () => {
                 if (!this.scene.isInPopup) {
-                    this.scene.sound.play("lightstring-sfx"); //TODO: light click sfx
+                    this.scene.sound.play("lightstring-sfx");
                     this.lightString.anims.play("pull-string");
                     this.lightString.once("animationcomplete", () => {
                         this.lightString.setFrame(0);
@@ -70,7 +70,7 @@ class Room extends Phaser.GameObjects.Sprite {
             });
             this.lightString.on("pointerover", (pointer, localX, localY, event) => {
                 if (!this.scene.isInPopup) {
-                    this.lightString.setTintFill(0xFFFFFF); //TODO: this isn't working on pages?
+                    this.lightString.setTintFill(0xFFFFFF);
                 }
             });
             this.lightString.on("pointerout", (pointer, localX, localY, event) => {
@@ -79,6 +79,7 @@ class Room extends Phaser.GameObjects.Sprite {
         }
     }
 
+    // to be able to hide room and all of its things as a unit
     toggleVisibility() {
         this.visible = !this.visible;
         this.items.forEach((item) => {
@@ -87,6 +88,7 @@ class Room extends Phaser.GameObjects.Sprite {
         this.transitionAreas.forEach((trans) => {
             trans.visible = !trans.visible;
         });
+
         if (this.box) { // for tv view
             this.box.visible = !this.box.visible;
         }
