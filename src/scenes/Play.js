@@ -62,6 +62,11 @@ class Play extends Phaser.Scene {
 
         // enable light for house room
         this.lights.enable();
+
+        // background construction noises
+        this.bgSFX = this.sound.add("construction-bg-sfx").setLoop(true).setVolume(0.7);
+        this.bgSFX.play();
+        this.bgSFX.setSeek(Phaser.Math.FloatBetween(0, this.bgSFX.totalDuration)); // start at random time
     }
 
     update() {

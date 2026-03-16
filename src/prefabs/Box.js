@@ -82,7 +82,7 @@ class Box extends Phaser.GameObjects.Sprite {
         // desaturate all the room bgs a little so the apt looks more empty :/
         this.scene.rooms.forEach((room) => {
             // amount, multiply? else false
-            room.cmFX.saturate(-1 / TOTAL_ITEMS / 1, true); //TODO: okay as of 10 items and -1 / total, it's fairly obvious by the end
+            room.cmFX.saturate(-1 / TOTAL_ITEMS / 2, true);
             // room.cmFX.brightness(1 + 1 / TOTAL_ITEMS / 20, true);
         });
 
@@ -94,6 +94,7 @@ class Box extends Phaser.GameObjects.Sprite {
         // increment packed counter in play scene and trigger game end if it's the last item
         this.scene.itemsPacked += 1;
         if (this.scene.itemsPacked == TOTAL_ITEMS) {
+            this.scene.bgSFX.destroy();
             this.scene.scene.start('endScene');
         }
     }

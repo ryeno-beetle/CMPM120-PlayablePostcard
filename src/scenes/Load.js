@@ -4,6 +4,8 @@ class Load extends Phaser.Scene {
     }
 
     preload() {
+        this.add.text(w / 2, h / 2, "Loading . . .");
+
         let roomData = this.cache.json.get('roomDataJSON');
         // console.log(roomData.length);
         // load assets from json
@@ -57,6 +59,8 @@ class Load extends Phaser.Scene {
         this.load.audio("rattly-sfx", "rattly.wav");
         this.load.audio("timer-sfx", "timer.wav");
         this.load.audio("untaping-sfx", "untaping.wav");
+        // long bois
+        this.load.audio("construction-bg-sfx", "construction_ambience.wav");
 
         // load particles
         this.load.path = "./assets/particles/";
