@@ -53,8 +53,8 @@ class Item extends Phaser.GameObjects.Sprite {
             this.off('pointerdown');
             this.removeInteractive();
         } else {
-            let popup = new Popup(this.scene, ("Wait, I need to pack " + this.scene.heldItem.displayName +
-                ((this.scene.heldItem.displayName.length > 12) ? "\n" : " ") + "first..."), "so true!");
+            let popup = new Popup(this.scene, ("Wait, I need to pack " + this.scene.heldItem.displayName + " first..."), "so true!");
+                // ((this.scene.heldItem.displayName.length > 12) ? "\n" : " ") + "first..."), "so true!");
         }
     }
 

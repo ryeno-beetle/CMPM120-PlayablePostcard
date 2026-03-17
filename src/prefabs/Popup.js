@@ -15,7 +15,7 @@ class Popup extends Phaser.GameObjects.Sprite {
     create() {
         // make message text
         this.messageText = this.scene.add.text(this.x - this.width * 1.1, this.y - this.height * 0.8, this.message,
-            {fontSize: 28, color: '#362626'}).setOrigin(0).setDepth(101);
+            {fontFamily: "almond-milky", fontSize: 28, color: '#362626'}).setOrigin(0).setDepth(101);
         
         // make button
         let x = this.x + (this.width * 0.75);

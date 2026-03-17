@@ -7,7 +7,7 @@ class Button extends Phaser.GameObjects.Sprite {
         this.setDepth(102);
 
         this.buttonText = this.scene.add.text(this.x - this.width / 3, this.y - this.height / 4, text,
-            {fontSize: 24, color: '#362626', align: "center"}).setDepth(102);
+            {fontFamily: "almond-milky", fontSize: 24, color: '#362626', align: "center"}).setDepth(102);
 
         this.setInteractive({useHandCursor: true});
 

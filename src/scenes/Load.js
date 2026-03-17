@@ -101,6 +101,10 @@ class Load extends Phaser.Scene {
             frameWidth: 25, frameHeight: 600, startFrame: 0, endFrame: 1
         });
         this.load.image("houseRoom_bg_near", "houseRoom_view/houseRoom_bg_near.png");
+
+        // font
+        this.load.path = "./assets/fonts/"
+        this.load.font("almond-milky", "AlmondMilky.otf", "opentype");
     }
 
     create() {

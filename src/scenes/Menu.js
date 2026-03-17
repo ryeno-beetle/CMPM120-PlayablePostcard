@@ -24,11 +24,11 @@ but you need to finish packing...\n\n\n\
 explore with your mouse to see what is interactable,\n\
 and click to interact.\n\
 \n\nclick to start!",
-                    {fontSize: 30, fontColor: 0x000000}).setOrigin(0.5);
+                    {fontFamily: "almond-milky", fontSize: 30, fontColor: 0x000000}).setOrigin(0.5);
                 this.add.text(config.width / 2, config.height * 0.75,
                     "if you are having trouble finding an item, press [P] to have a random item\n\
 automatically picked up so you can pack everything and see the ending!",
-                    {fontSize: 16, fontColor: 0x000000}).setOrigin(0.5);
+                    {fontFamily: "almond-milky", fontSize: 20, fontColor: 0x000000}).setOrigin(0.5);
                 this.cameras.main.fadeIn(250);
 
                 this.input.on("pointerdown", () => {
@@ -43,9 +43,9 @@ automatically picked up so you can pack everything and see the ending!",
 
         // popup for credits
         this.creditsButton.on("pointerdown", () => {
-            let creditsTxt = "All art, code, sound, and design\nby Rye D. and Lynn G.\n\n\
-Everything made and recorded in-house\n\
-(literally).";
+            let creditsTxt = "All art, code, sound, and design by Rye D. and Lynn G.\n\n\
+Everything made and recorded in-house (literally).\n\
+Font is Almond Milky (personal use OK).";
             this.startButton.toggleVisibility();
             this.creditsButton.toggleVisibility();
             this.credits = new Popup(this, creditsTxt, "yay!");

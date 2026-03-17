@@ -12,7 +12,7 @@
                 "soundKey": "heavy-plastic-sfx",
                 "x": 750,
                 "y": 300,
-                "message": "we still have so many more shows to\nwatch...!"
+                "message": "we still have so many more shows to watch..."
             }
         ],
         "box": {
@@ -72,7 +72,7 @@
                 "soundKey": "paper-sfx",
                 "x": 340,
                 "y": 50,
-                "message": "mysterious creature from the generation\nbefore us."
+                "message": "mysterious creature from the generation before us."
             },
             {
                 "name": "inchworm", 
@@ -134,16 +134,7 @@
                 "soundKey": "metal-sfx",
                 "x": 315,
                 "y": 445,
-                "message": "seems a little smoother than when the\nyear started... one day we'll replace\nthe spatula."
-            },
-            {
-                "name": "foxtimer", 
-                "displayName" : "fox timer",
-                "animKey": "foxtimer_anim",
-                "soundKey": "timer-sfx",
-                "x": 620,
-                "y": 435,
-                "message": "tickticktcitkcitckticktcitkcitckticktcitkcitkcitkcitkcitkcitkctciktcitkcitkcitkctickticktcitkcitkcitkcit"
+                "message": "seems a little smoother than when the year started...\none day we'll replace the spatula."
             }
         ],
         "transitions": [
@@ -214,6 +205,15 @@
         "bgTextureFile": "fridge_bg.png",
         "bgTextureKey": "fridge_bg",
         "items": [
+            {
+                "name": "foxtimer", 
+                "displayName" : "fox timer",
+                "animKey": "foxtimer_anim",
+                "soundKey": "timer-sfx",
+                "x": 510,
+                "y": 530,
+                "message": "tickticktcitkcitckticktcitkcitckticktcitkcitkcitkcitkcitkcitkctciktcitkcitkcitkctickticktcitkcitkcitkcit"
+            }
         ],
         "postcard": {
             "textureFileA": "cat_photos.png", 
@@ -248,7 +248,7 @@
                 "soundKey": "paper-sfx",
                 "x": 700,
                 "y": 250,
-                "message": "he's going to be a House without a\nhome :/"
+                "message": "he's going to be a House without a home :("
             }
         ],
         "transitions": [
@@ -319,7 +319,7 @@
                 "soundKey": "medium-plastic-sfx",
                 "x": 865,
                 "y": 425,
-                "message": "blub glub blub... (she does such a\ngood job being bright!)"
+                "message": "blub glub blub... (she does such a good job being\nbright!)"
             }
         ],
         "transitions": [
