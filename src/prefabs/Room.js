@@ -43,8 +43,7 @@ class Room extends Phaser.GameObjects.Sprite {
 
         // if this room is fridge room, add postcard
         if (roomData.name == "fridge") {
-            this.postcard = new Postcard(scene, this, roomData.postcard.x, roomData.postcard.y, 
-                roomData.postcard.textureKeyA, roomData.postcard.textureKeyB, roomData.postcard.soundKey);
+            this.postcard = new Postcard(scene, this, roomData.postcard.x, roomData.postcard.y);
             this.postcard.setVisible(false);
         }
 

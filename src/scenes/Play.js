@@ -72,6 +72,8 @@ class Play extends Phaser.Scene {
 
         // obj pack key for grader
         this.keyPACK = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
+
+        this.border = this.add.sprite(0, 0, "border").setDepth(10000).setOrigin(0);
     }
 
     update() {

@@ -1,22 +1,21 @@
 // postcard class!
 class Postcard extends Phaser.GameObjects.Sprite {
-    constructor(scene, room, x, y, textureA, textureB, pickUpSound) {
-        super(scene, x, y, textureA);
+    constructor(scene, room, x, y) {
+        super(scene, x, y, "postcard_small_A");
         scene.add.existing(this); // add to existing, displayList, updateList
         
         this.room = room;
-        this.pickUpSound = pickUpSound;
-        this.textureB = textureB;
         
-        this.scale = 0.45;
+        this.scale = 0.25;
 
         scene.postcard = this; // add ref to postcard in scene
 
     }
 
     makeInteractable() {
-        console.log('EEE');
-        this.key = this.textureB; // does this work? NO but we can just swap the anim it is playing B)
+        // console.log('EEE');
+        // this.key = this.textureB; // does this work? NO but we can just swap the anim it is playing B)
+        this.setTexture("postcard_small_B");
         //this.madeInteractable = true;
         this.setInteractive({useHandCursor: true});
         //on click
@@ -38,8 +37,9 @@ class Postcard extends Phaser.GameObjects.Sprite {
     }
 
     handleClick() {
-        console.log('postcard clicked');
-        this.scene.sound.play(this.pickUpSound);
+        this.setScale(1)
+        // console.log('postcard clicked');
+        this.scene.sound.play("paper-sfx");
         this.scene.tweens.add({
             targets: this,
             duration: 500,
@@ -52,6 +52,7 @@ class Postcard extends Phaser.GameObjects.Sprite {
                 this.off('pointerout');
                 this.setTint(0xFFFFFF);
                 //TODO: change texture by playing other anim
+                this.setTexture("postcard_big_front");
                 this.scene.tweens.add({
                     targets: this,
                     duration: 500,
@@ -66,7 +67,7 @@ class Postcard extends Phaser.GameObjects.Sprite {
         });
 
         // make arrow button to flip postcard
-        this.flipButton = new Button(this.scene, config.width - 100, config.height - 100, "->"); //TODO: multiple button texture options
+        this.flipButton = new Button(this.scene, config.width - 100, config.height - 100, "flip! ->"); //TODO: multiple button texture options
         this.flipButton.on('pointerdown', () => {
             this.flip();
         });
@@ -85,12 +86,25 @@ class Postcard extends Phaser.GameObjects.Sprite {
                     scaleX: 0,
                     duration: 500,
                     onStart: () => {
-                        this.scene.sound.play(this.pickUpSound);
+                        this.scene.sound.play("paper-sfx");
                     }
                 },
                 {
+                    onStart: () => {
+                        this.setTexture("postcard_big_back");
+                    },
                     scaleX: 1,
                     duration: 500,
+                    hold: 2000,
+                    onComplete: () => {
+                        this.restartButton = new Button(this.scene, w / 2, h * 0.9, "put away");
+                        this.restartButton.on("pointerdown", () => {
+                            this.scene.cameras.main.fadeOut(250);
+                            this.scene.cameras.main.on("camerafadeoutcomplete", () => {
+                                this.scene.scene.start('menuScene');
+                            });
+                        })
+                    }
                 },
             ]
         });

@@ -5,6 +5,7 @@ class Menu extends Phaser.Scene {
 
     create() {
         this.bg = this.add.sprite(0, 0, "envelope").setDepth(-1).setOrigin(0);
+        this.border = this.add.sprite(0, 0, "border").setDepth(10000).setOrigin(0);
         
         this.startButton = new Button(this, w / 2 + 30, h / 2 + 15);
         this.startButton.anims.play("playsticker_anim");

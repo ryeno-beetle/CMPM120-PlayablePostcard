@@ -221,8 +221,8 @@
             "textureFileB": "nagito.png",
             "textureKeyB": "nagito",
             "soundKey": "paper-sfx",
-            "x": 800,
-            "y": 400
+            "x": 950,
+            "y": 350
         },
         "transitions": [
             {
