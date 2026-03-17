@@ -69,10 +69,18 @@ class Play extends Phaser.Scene {
         this.bgSFX.setSeek(Phaser.Math.FloatBetween(0, this.bgSFX.totalDuration)); // start at random time
 
         this.cameras.main.fadeIn(250);
+
+        // temp obj pack key
+        this.keyPACK = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
     }
 
     update() {
         this.roomFSM.step();
+        // temp obj pack key press event
+        if (Phaser.Input.Keyboard.JustDown(this.keyPACK)) {
+            this.itemsPacked ++;
+            console.log('aaa');
+        }
     }
 
     // helper for fading camera out/in that TransitionAreas can call
@@ -82,6 +90,12 @@ class Play extends Phaser.Scene {
             this.cameras.main.fadeIn(250);
         });
     }
+
+    // copied from box class
+    // endGame() {
+    //     this.bgSFX.destroy();
+    //     this.scene.start('endScene');
+    // }
 }
 
 

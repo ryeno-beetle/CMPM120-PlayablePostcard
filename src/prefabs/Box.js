@@ -93,9 +93,10 @@ class Box extends Phaser.GameObjects.Sprite {
 
         // increment packed counter in play scene and trigger game end if it's the last item
         this.scene.itemsPacked += 1;
-        if (this.scene.itemsPacked == TOTAL_ITEMS) {
-            this.scene.bgSFX.destroy();
-            this.scene.scene.start('endScene');
+        if (this.scene.itemsPacked >= TOTAL_ITEMS) {
+            // make postcard interactable and make popup
+            this.scene.postcard.makeInteractable();
+            let popup = new Popup (this.scene, "Wait, I forgot something...", "go look");
         }
     }
 

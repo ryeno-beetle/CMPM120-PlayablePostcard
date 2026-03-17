@@ -206,6 +206,15 @@
         "bgTextureKey": "fridge_bg",
         "items": [
         ],
+        "postcard": {
+            "textureFileA": "cat_photos.png", 
+            "textureKeyA": "cat photos",
+            "textureFileB": "nagito.png",
+            "textureKeyB": "nagito",
+            "soundKey": "paper-sfx",
+            "x": 800,
+            "y": 400
+        },
         "transitions": [
             {
                 "key": "fridge-to-stove",

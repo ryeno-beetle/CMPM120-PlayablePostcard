@@ -40,6 +40,13 @@ class Room extends Phaser.GameObjects.Sprite {
             // console.log(this.box)
         }
 
+        // if this room is fridge room, add postcard
+        if (roomData.name == "fridge") {
+            this.postcard = new Postcard(scene, this, roomData.postcard.x, roomData.postcard.y, 
+                roomData.postcard.textureKeyA, roomData.postcard.textureKeyB, roomData.postcard.soundKey);
+            this.postcard.setVisible(false);
+        }
+
         // if this room is house room (closet), add light and string to turn it on
         if (roomData.name === "houseRoom") {
             let LOW_INTENSITY = -5;
@@ -91,6 +98,9 @@ class Room extends Phaser.GameObjects.Sprite {
 
         if (this.box) { // for tv view
             this.box.visible = !this.box.visible;
+        }
+        if (this.postcard) {
+            this.postcard.visible = !this.postcard.visible;
         }
         if (this.light) {   // for house room (closet)
             this.light.visible = !this.light.visible;
