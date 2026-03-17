@@ -31,7 +31,7 @@ class Play extends Phaser.Scene {
         this.itemsPacked = 0;
         // set up held item as a sprite whose image changes to whatever we picked up.
         // when not holding anything, visibile will be false and key will be null
-        this.heldItem = this.add.sprite(w * 0.75, h * 0.9, null).setOrigin(0.5);
+        this.heldItem = this.add.sprite(w * 0.75, h * 0.9, null).setOrigin(0.5).setScale(1.5);
         this.heldItem.setVisible(false);
         this.heldItemSound = null;
         // if we are in dialogue, we don't want to be able to interact with other things

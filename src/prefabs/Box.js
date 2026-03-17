@@ -1,7 +1,7 @@
 // tv view of living room has the box we pack everything into
 class Box extends Phaser.GameObjects.Sprite {
-     constructor(scene, room, x, y, texture, cantPackMessage, packedMessage) {
-        super(scene, x, y, texture);
+     constructor(scene, room, x, y, itemsatlas, frame, animKey, cantPackMessage, packedMessage) {
+        super(scene, x, y, itemsatlas, frame);
         scene.add.existing(this); // add to existing, displayList, updateList
         
         this.room = room;
@@ -9,7 +9,8 @@ class Box extends Phaser.GameObjects.Sprite {
         this.cantPackMessage = cantPackMessage;
         this.packedMessage = packedMessage;
 
-        this.scale = 0.5
+        // this.scale = 0.5
+        this.anims.play(animKey);
         this.setOrigin(1);
 
         this.setInteractive({useHandCursor: true, pixelPerfect: true});
@@ -58,7 +59,8 @@ class Box extends Phaser.GameObjects.Sprite {
     handleClick() {
         // show one of two popup options
         if (this.scene.heldItem.visible) {  // if holding item, pack it
-            let popup = new Popup(this.scene, this.packedMessage + this.scene.heldItem.texture.key + "...", "pack me!");
+            console.log(this.scene.heldItem)
+            let popup = new Popup(this.scene, this.packedMessage + this.scene.heldItem.displayName + "...", "pack me!");
             popup.on("popupClosed", () => {
                 this.packItem();
             });

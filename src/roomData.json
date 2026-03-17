@@ -5,12 +5,21 @@
         "bgTextureFile": "tv_bg.png",
         "bgTextureKey": "tv_bg",
         "items": [
+            {
+                "name": "tv", 
+                "displayName" : "TV",
+                "animKey": "tv_anim",
+                "soundKey": "heavy-plastic-sfx",
+                "x": 750,
+                "y": 300,
+                "message": "this was a great TV to play games\non..."
+            }
         ],
         "box": {
-            "textureFile": "box.png", 
-            "textureKey": "box",
-            "x": 190,
-            "y": 580,
+            "name": "box",
+            "animKey": "box_anim",
+            "x": 300,
+            "y": 550,
             "cantPackMessage": "I'm not holding anything to pack...",
             "packedMessage": "See you later, "
         },
@@ -48,7 +57,8 @@
         "bgTextureKey": "dining_bg",
         "items": [
             {
-                "name": "horse", 
+                "name": "horse",
+                "displayName": "horse",
                 "animKey": "horse_anim",
                 "soundKey": "medium-plastic-sfx",
                 "x": 1000,
@@ -57,6 +67,7 @@
             },
             {
                 "name": "catphotos", 
+                "displayName" : "cat photos",
                 "animKey": "catphotos_anim",
                 "soundKey": "paper-sfx",
                 "x": 340,
@@ -64,7 +75,17 @@
                 "message": "who was he??"
             },
             {
-                "name": "hotplate", 
+                "name": "inchworm", 
+                "displayName" : "inchworm",
+                "animKey": "inchworm_anim",
+                "soundKey": "untaping-sfx",
+                "x": 365,
+                "y": 340,
+                "message": "so fashionable!!"
+            },
+            {
+                "name": "hotplate",
+                "displayName" : "hot plate",
                 "animKey": "hotplate_anim",
                 "soundKey": "heavy-plastic-sfx",
                 "x": 400,
@@ -98,20 +119,31 @@
         "bgTextureKey": "stove_bg",
         "items": [
             {
-                "name": "blender", 
+                "name": "blender",
+                "displayName" : "blender",
                 "animKey": "blender_anim",
                 "soundKey": "heavy-plastic-sfx",
                 "x": 800,
-                "y": 300,
+                "y": 330,
                 "message": "BLENDERRRR"
             },
             {
                 "name": "pan", 
+                "displayName" : "pan",
                 "animKey": "pan_anim",
                 "soundKey": "metal-sfx",
-                "x": 300,
-                "y": 440,
+                "x": 315,
+                "y": 445,
                 "message": "seems a little smoother than when the\nyear started..."
+            },
+            {
+                "name": "foxtimer", 
+                "displayName" : "fox timer",
+                "animKey": "foxtimer_anim",
+                "soundKey": "timer-sfx",
+                "x": 620,
+                "y": 435,
+                "message": "tickticktcitkcitckticktcitkcitckticktcitkcitkcitkcitkcitkcitkctciktcitkcitkcitkctickticktcitkcitkcitkcit"
             }
         ],
         "transitions": [
@@ -140,7 +172,8 @@
         "bgTextureKey": "shoe_bg",
         "items": [
             {
-                "name": "boots", 
+                "name": "boots",
+                "displayName" : "boots",
                 "animKey": "boots_anim",
                 "soundKey": "rattly-sfx",
                 "x": 750,
@@ -208,6 +241,15 @@
         "bgTextureFile": "houseRoom_bg.png",
         "bgTextureKey": "houseRoom_bg",
         "items": [
+            {
+                "name": "house", 
+                "displayName" : "House M.D. portait",
+                "animKey": "house_anim",
+                "soundKey": "paper-sfx",
+                "x": 700,
+                "y": 250,
+                "message": "he's going to be a House without a\nhome :/"
+            }
         ],
         "transitions": [
             {
@@ -234,6 +276,15 @@
         "bgTextureFile": "bathroom_bg.png",
         "bgTextureKey": "bathroom_bg",
         "items": [
+            {
+                "name": "bathmat",
+                "displayName" : "bathmat",
+                "animKey": "bathmat_anim",
+                "soundKey": "plush-sfx",
+                "x": 530,
+                "y": 430,
+                "message": "...hi there"
+            }
         ],
         "transitions": [
             {
@@ -253,12 +304,22 @@
         "bgTextureKey": "couch_bg",
         "items": [
             {
-                "name": "nagito", 
+                "name": "nagito",
+                "displayName" : "Nagito",
                 "animKey": "nagito_anim",
                 "soundKey": "untaping-sfx",
                 "x": 900,
                 "y": 60,
                 "message": "oh, that's where he was"
+            },
+            {
+                "name": "fishlamp",
+                "displayName" : "fish lamp",
+                "animKey": "fishlamp_anim",
+                "soundKey": "medium-plastic-sfx",
+                "x": 865,
+                "y": 425,
+                "message": "dazzingly brilliant as always"
             }
         ],
         "transitions": [

@@ -9,7 +9,7 @@ class TransitionArea extends Phaser.GameObjects.Sprite {
         this.nextRoom = nextRoom;
         this.LOW_ALPHA = 0.01;
         this.HIGH_ALPHA = 0.3;
-        this.setDepth(-1);  // go behind items
+        this.setDepth(0);  // go behind items
         this.setAlpha(this.LOW_ALPHA);   // hide until hovered over
 
         // wait prefabs don't have create() by default right

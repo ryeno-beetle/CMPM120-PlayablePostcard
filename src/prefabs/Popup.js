@@ -19,7 +19,7 @@ class Popup extends Phaser.GameObjects.Sprite {
         
         // make button
         let x = this.x + (this.width * 0.75);
-        let y = this.y + (this.height);
+        let y = this.y + (this.height) * 1.2;
         this.button = new Button(this.scene, x, y, this.buttonText);
 
         // listen for click

@@ -53,14 +53,14 @@ class Item extends Phaser.GameObjects.Sprite {
             this.off('pointerdown');
             this.removeInteractive();
         } else {
-            let popup = new Popup(this.scene, "Wait, I need to pack " +
-                this.scene.heldItem.name + " first...", "so true!");
+            let popup = new Popup(this.scene, ("Wait, I need to pack " + this.scene.heldItem.displayName +
+                ((this.scene.heldItem.displayName.length > 12) ? "\n" : " ") + "first..."), "so true!");
         }
     }
 
     holdItem() {   
         // give our image key to the scene's heldItem
-        this.scene.heldItem.name = this.name;
+        this.scene.heldItem.displayName = this.displayName;
         this.scene.heldItem.anims.play(this.animKey);
         this.scene.heldItem.setVisible(true);
         this.scene.heldItemSound = this.pickUpSound;

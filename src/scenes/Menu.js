@@ -27,6 +27,7 @@ and click to interact.\n\
                 this.cameras.main.fadeIn(250);
 
                 this.input.on("pointerdown", () => {
+                    this.sound.play("ui-sfx");
                     this.cameras.main.fadeOut(250);
                     this.cameras.main.on("camerafadeoutcomplete", () => {
                         this.scene.start('playScene');

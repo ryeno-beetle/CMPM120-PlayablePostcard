@@ -20,5 +20,5 @@ let config = {
 let game = new Phaser.Game(config);
 
 // item counts
-const TOTAL_ITEMS = 10;
+const TOTAL_ITEMS = 13;
 const w = game.config.width, h = game.config.height;

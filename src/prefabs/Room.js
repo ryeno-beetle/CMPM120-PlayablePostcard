@@ -16,6 +16,7 @@ class Room extends Phaser.GameObjects.Sprite {
         for (let i = 0; i < roomData.items.length; i++) {
             this.items.push(new Item(scene, this, roomData.items[i].x, roomData.items[i].y,
                 'items_atlas', 0, roomData.items[i].animKey, roomData.items[i].name, roomData.items[i].soundKey, roomData.items[i].message).setOrigin(0));
+            this.items[i].displayName = roomData.items[i].displayName;
             this.items[i].setVisible(false);
         }
 
@@ -34,7 +35,7 @@ class Room extends Phaser.GameObjects.Sprite {
         // if this room is tv view of living room, add packing box
         // (get box object in roomData that only the tv room has)
         if (roomData.name === "tv") {
-            this.box = new Box(scene, this, roomData.box.x, roomData.box.y, roomData.box.textureKey,
+            this.box = new Box(scene, this, roomData.box.x, roomData.box.y, 'items_atlas', 0, roomData.box.animKey,
                 roomData.box.cantPackMessage, roomData.box.packedMessage).setOrigin(0);
             this.box.setVisible(false);
             // console.log(this.box)
@@ -57,6 +58,7 @@ class Room extends Phaser.GameObjects.Sprite {
             // be affected by lighting
             // https://docs.phaser.io/api-documentation/class/gameobjects-lightsplugin
             this.setPipeline("Light2D");
+            this.items[0].setPipeline("Light2D");
             // add foreground not affected by lighting
             this.foreground = this.scene.add.sprite(0, 0, "houseRoom_bg_near").setOrigin(0).setDepth(-2);
             this.foreground.setVisible(false);
