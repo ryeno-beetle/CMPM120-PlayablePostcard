@@ -1,16 +1,19 @@
 // prefab for an item that the player picks up
 class Item extends Phaser.GameObjects.Sprite {
-    constructor(scene, room, x, y, texture, pickUpSound, message) {
-        super(scene, x, y, texture);
+    constructor(scene, room, x, y, itemsatlas, frame, animKey, name, pickUpSound, message) {
+        super(scene, x, y, itemsatlas, frame);
         scene.add.existing(this); // add to existing, displayList, updateList
         
         // console.log("just added" + texture);
+        this.name = name;
         this.room = room;
         this.message = message;
         this.pickUpSound = pickUpSound;
-        this.texture = texture;
+        this.animKey = animKey;
         
-        this.scale = 0.45;
+        //this.scale = 0.45;
+
+        this.anims.play(animKey);
 
         //TODO: why can we not add pixel perfect here
         this.setInteractive({useHandCursor: true});
@@ -51,13 +54,14 @@ class Item extends Phaser.GameObjects.Sprite {
             this.removeInteractive();
         } else {
             let popup = new Popup(this.scene, "Wait, I need to pack " +
-                this.scene.heldItem.texture.key + " first...", "so true!");
+                this.scene.heldItem.name + " first...", "so true!");
         }
     }
 
     holdItem() {   
         // give our image key to the scene's heldItem
-        this.scene.heldItem.setTexture(this.texture);
+        this.scene.heldItem.name = this.name;
+        this.scene.heldItem.anims.play(this.animKey);
         this.scene.heldItem.setVisible(true);
         this.scene.heldItemSound = this.pickUpSound;
         this.scene.sound.play(this.pickUpSound);

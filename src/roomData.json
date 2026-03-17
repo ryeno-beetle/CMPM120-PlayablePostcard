@@ -5,14 +5,6 @@
         "bgTextureFile": "tv_bg.png",
         "bgTextureKey": "tv_bg",
         "items": [
-            {
-                "textureFile": "tv.png", 
-                "textureKey": "TV",
-                "soundKey": "heavy-plastic-sfx",
-                "x": 750,
-                "y": 290,
-                "message": "our beautiful tv <3"
-            }
         ],
         "box": {
             "textureFile": "box.png", 
@@ -56,36 +48,28 @@
         "bgTextureKey": "dining_bg",
         "items": [
             {
-                "textureFile": "horse.png", 
-                "textureKey": "horse",
+                "name": "horse", 
+                "animKey": "horse_anim",
                 "soundKey": "medium-plastic-sfx",
                 "x": 1000,
                 "y": 550,
                 "message": "horses horses horses horses"
             },
             {
-                "textureFile": "cat_photos.png", 
-                "textureKey": "cat photos",
+                "name": "catphotos", 
+                "animKey": "catphotos_anim",
                 "soundKey": "paper-sfx",
                 "x": 340,
                 "y": 50,
                 "message": "who was he??"
             },
             {
-                "textureFile": "hot_plate.png", 
-                "textureKey": "hot plate",
+                "name": "hotplate", 
+                "animKey": "hotplate_anim",
                 "soundKey": "heavy-plastic-sfx",
                 "x": 400,
                 "y": 480,
                 "message": "恭喜發財!!!!"
-            },
-            {
-                "textureFile": "inchworm.png", 
-                "textureKey": "inchworm",
-                "soundKey": "ceramic-sfx",
-                "x": 100,
-                "y": 370,
-                "message": "so fashionable!"
             }
         ],
         "transitions": [
@@ -114,24 +98,16 @@
         "bgTextureKey": "stove_bg",
         "items": [
             {
-                "textureFile": "blender.png", 
-                "textureKey": "blender",
+                "name": "blender", 
+                "animKey": "blender_anim",
                 "soundKey": "heavy-plastic-sfx",
                 "x": 800,
                 "y": 300,
                 "message": "BLENDERRRR"
             },
             {
-                "textureFile": "fox.png", 
-                "textureKey": "fox timer",
-                "soundKey": "timer-sfx",
-                "x": 600,
-                "y": 450,
-                "message": "tickticktickticktcitkcitcktickticktcitkcitkcitkci"
-            },
-            {
-                "textureFile": "pan.png", 
-                "textureKey": "pan",
+                "name": "pan", 
+                "animKey": "pan_anim",
                 "soundKey": "metal-sfx",
                 "x": 300,
                 "y": 440,
@@ -164,8 +140,8 @@
         "bgTextureKey": "shoe_bg",
         "items": [
             {
-                "textureFile": "boots.png", 
-                "textureKey": "boots",
+                "name": "boots", 
+                "animKey": "boots_anim",
                 "soundKey": "rattly-sfx",
                 "x": 750,
                 "y": 570,
@@ -277,8 +253,8 @@
         "bgTextureKey": "couch_bg",
         "items": [
             {
-                "textureFile": "nagito.png", 
-                "textureKey": "Nagito",
+                "name": "nagito", 
+                "animKey": "nagito_anim",
                 "soundKey": "untaping-sfx",
                 "x": 900,
                 "y": 60,

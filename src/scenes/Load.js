@@ -15,14 +15,55 @@ class Load extends Phaser.Scene {
             this.load.path = roomData[i].assetPath;
             // load background
             this.load.image(roomData[i].bgTextureKey, roomData[i].bgTextureFile);
-            // load assets for each item
-            // console.log("loading things for room " + roomData[i].name);
+            // create anims for each item
             let objs = roomData[i].items;
-            // console.log("objs: ", objs);
             for (let j = 0; j < objs.length; j++) {
-                // console.log("in " + roomData[i].name + " room , loading item: " + objs[j].textureKey);
-                this.load.image(objs[j].textureKey, objs[j].textureFile);
+                console.log(this.anims.generateFrameNames('items_atlas', {
+                        prefix: objs[j].name,
+                        start: 1,
+                        end: 2,
+                        suffix: '',
+                        zeroPad: 0 
+                    }))
+                this.anims.create({
+                    key: objs[j].animKey,
+                    frames: this.anims.generateFrameNames('items_atlas', {
+                        prefix: objs[j].name,
+                        start: 1,
+                        end: 2,
+                        suffix: '',
+                        zeroPad: 0 
+                    }),
+                    repeat: -1,
+                    frameRate: 4
+                });
             }
+
+            // needed to take this out of json temporarily lol
+            // {
+            //     "name": "tv", 
+            //     "animKey": "tv_anim",
+            //     "soundKey": "heavy-plastic-sfx",
+            //     "x": 750,
+            //     "y": 290,
+            //     "message": "our beautiful tv <3"
+            // }
+            // {
+            //     "name": "inchworm", 
+            //     "animKey": "inchworm_anim",
+            //     "soundKey": "ceramic-sfx",
+            //     "x": 100,
+            //     "y": 370,
+            //     "message": "so fashionable!"
+            // }
+            // {
+            //     "name": "foxtimer", 
+            //     "animKey": "foxtimer_anim",
+            //     "soundKey": "timer-sfx",
+            //     "x": 600,
+            //     "y": 450,
+            //     "message": "tickticktickticktcitkcitcktickticktcitkcitkcitkci"
+            // },
 
             // load box if currently loading tv room
             if (roomData[i].name === "tv") {
