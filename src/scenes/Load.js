@@ -7,7 +7,6 @@ class Load extends Phaser.Scene {
         this.add.text(w / 2, h / 2, "Loading . . .");
 
         let roomData = this.cache.json.get('roomDataJSON');
-        // console.log(roomData.length);
         // load assets from json
         // for each room...
         for (let i = 0; i < roomData.length; i++) {
@@ -18,13 +17,6 @@ class Load extends Phaser.Scene {
             // create anims for each item
             let objs = roomData[i].items;
             for (let j = 0; j < objs.length; j++) {
-                // console.log(this.anims.generateFrameNames('items_atlas', {
-                //         prefix: objs[j].name,
-                //         start: 1,
-                //         end: 2,
-                //         suffix: '',
-                //         zeroPad: 0 
-                //     }))
                 this.anims.create({
                     key: objs[j].animKey,
                     frames: this.anims.generateFrameNames('items_atlas', {
@@ -39,37 +31,6 @@ class Load extends Phaser.Scene {
                 });
             }
 
-            // needed to take this out of json temporarily lol
-            // {
-            //     "name": "tv", 
-            //     "animKey": "tv_anim",
-            //     "soundKey": "heavy-plastic-sfx",
-            //     "x": 750,
-            //     "y": 290,
-            //     "message": "our beautiful tv <3"
-            // }
-            // {
-            //     "name": "inchworm", 
-            //     "animKey": "inchworm_anim",
-            //     "soundKey": "ceramic-sfx",
-            //     "x": 100,
-            //     "y": 370,
-            //     "message": "so fashionable!"
-            // }
-            // {
-            //     "name": "foxtimer", 
-            //     "animKey": "foxtimer_anim",
-            //     "soundKey": "timer-sfx",
-            //     "x": 600,
-            //     "y": 450,
-            //     "message": "tickticktickticktcitkcitcktickticktcitkcitkcitkci"
-            // },
-
-            // load box if currently loading tv room
-            // if (roomData[i].name === "tv") {
-            //     this.load.image(roomData[i].box.textureKey, roomData[i].box.textureFile);
-            // }
-
             // create textures from rects for each transitionarea
             let transes = roomData[i].transitions;
             for (let j = 0; j < transes.length; j++) {
@@ -78,20 +39,32 @@ class Load extends Phaser.Scene {
                 rt.saveTexture(transes[j].key);
             }
         }
-
-        // same for box
-            this.anims.create({
-                key: "box_anim",
-                frames: this.anims.generateFrameNames('items_atlas', {
-                    prefix: "box",
-                    start: 1,
-                    end: 2,
-                    suffix: '',
-                    zeroPad: 0 
-                }),
-                repeat: -1,
-                frameRate: 4
-            });
+        
+        // anims for box and play button, which aren't Items
+        this.anims.create({
+            key: "box_anim",
+            frames: this.anims.generateFrameNames('items_atlas', {
+                prefix: "box",
+                start: 1,
+                end: 2,
+                suffix: '',
+                zeroPad: 0 
+            }),
+            repeat: -1,
+            frameRate: 4
+        });
+        this.anims.create({
+            key: "playsticker_anim",
+            frames: this.anims.generateFrameNames('items_atlas', {
+                prefix: "playsticker",
+                start: 1,
+                end: 2,
+                suffix: '',
+                zeroPad: 0 
+            }),
+            repeat: -1,
+            frameRate: 4
+        });
 
         // load ui assets
         this.load.path = './assets/ui/';

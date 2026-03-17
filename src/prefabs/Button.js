@@ -13,7 +13,7 @@ class Button extends Phaser.GameObjects.Sprite {
 
         // darken button on hover
         this.on("pointerover", (pointer, localX, localY, event) => {
-            this.setTint(0xEEEEEE);
+            this.setTint(0xDDDDDD);
         });
         this.on("pointerout", (pointer, localX, localY, event) => {
             this.setTint(0xFFFFFF);

@@ -59,7 +59,7 @@ class Box extends Phaser.GameObjects.Sprite {
     handleClick() {
         // show one of two popup options
         if (this.scene.heldItem.visible) {  // if holding item, pack it
-            console.log(this.scene.heldItem)
+            // console.log(this.scene.heldItem)
             let popup = new Popup(this.scene, this.packedMessage + this.scene.heldItem.displayName + "...", "pack me!");
             popup.on("popupClosed", () => {
                 this.packItem();

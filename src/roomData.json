@@ -12,7 +12,7 @@
                 "soundKey": "heavy-plastic-sfx",
                 "x": 750,
                 "y": 300,
-                "message": "this was a great TV to play games\non..."
+                "message": "we still have so many more shows to\nwatch...!"
             }
         ],
         "box": {
@@ -20,8 +20,8 @@
             "animKey": "box_anim",
             "x": 300,
             "y": 550,
-            "cantPackMessage": "I'm not holding anything to pack...",
-            "packedMessage": "See you later, "
+            "cantPackMessage": "i'm not holding anything to pack...",
+            "packedMessage": "see you later, "
         },
         "transitions": [
             {
@@ -72,7 +72,7 @@
                 "soundKey": "paper-sfx",
                 "x": 340,
                 "y": 50,
-                "message": "who was he??"
+                "message": "mysterious creature from the generation\nbefore us."
             },
             {
                 "name": "inchworm", 
@@ -125,7 +125,7 @@
                 "soundKey": "heavy-plastic-sfx",
                 "x": 800,
                 "y": 330,
-                "message": "BLENDERRRR"
+                "message": "BLENDERRRR!!!!!!!!"
             },
             {
                 "name": "pan", 
@@ -134,7 +134,7 @@
                 "soundKey": "metal-sfx",
                 "x": 315,
                 "y": 445,
-                "message": "seems a little smoother than when the\nyear started..."
+                "message": "seems a little smoother than when the\nyear started... one day we'll replace\nthe spatula."
             },
             {
                 "name": "foxtimer", 
@@ -319,7 +319,7 @@
                 "soundKey": "medium-plastic-sfx",
                 "x": 865,
                 "y": 425,
-                "message": "dazzingly brilliant as always"
+                "message": "blub glub blub... (she does such a\ngood job being bright!)"
             }
         ],
         "transitions": [

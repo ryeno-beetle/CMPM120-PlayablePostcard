@@ -70,16 +70,33 @@ class Play extends Phaser.Scene {
 
         this.cameras.main.fadeIn(250);
 
-        // temp obj pack key
+        // obj pack key for grader
         this.keyPACK = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
     }
 
     update() {
         this.roomFSM.step();
+
         // temp obj pack key press event
         if (Phaser.Input.Keyboard.JustDown(this.keyPACK)) {
-            this.itemsPacked ++;
-            console.log('aaa');
+            // only do it if not holding an item
+            if (!this.heldItem.visible && this.itemsPacked < TOTAL_ITEMS) {
+                // make list of rooms with items left
+                let nonEmptyRooms = [];
+                for (let i = 0; i < this.rooms.length; i++) {
+                    // console.log("checking", this.rooms[i])
+                    if (this.rooms[i].items.length > 0) {
+                        nonEmptyRooms.push(this.rooms[i]);
+                    }
+                }
+                // console.log("nonempty rooms:", nonEmptyRooms)
+                let randRoom = nonEmptyRooms[Phaser.Math.Between(0, nonEmptyRooms.length - 1)];
+                // console.log("picked room", randRoom)
+                let randItem = randRoom.items[Phaser.Math.Between(0, randRoom.items.length - 1)];
+                // console.log("picked item", randItem)
+
+                randItem.holdItem();
+            }
         }
     }
 

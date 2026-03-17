@@ -27,7 +27,7 @@ class Item extends Phaser.GameObjects.Sprite {
         // darken on hover
         this.on("pointerover", (pointer, localX, localY, event) => {
             if (!this.scene.isInPopup) {
-                this.setTint(0xEEEEEE);
+                this.setTint(0xDDDDDD);
             }
         });
         this.on("pointerout", (pointer, localX, localY, event) => {
